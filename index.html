@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <!-- 
+      ★★★ 域名与社交分享深度配置区 ★★★
+      注意：社交媒体抓取工具（如 Facebook Debugger）无法运行 JS，
+      所以这里的 URL 必须手动填写为带 https:// 的绝对路径。
+    -->
+    <title>海外华人手游福利站 - 国服手游0.1折爽玩</title>
+    
+    <!-- 基础 Open Graph 属性 (修复 og:type) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://games.aijue.xyz/">
+    <meta property="og:title" content="🔥别再花冤枉钱！海外华人玩国服手游只要 0.1 折！">
+    <meta property="og:description" content="👉 注册即送 $20 无门槛代金券！支持 PayPal/信用卡直充。国服同服不卡顿，上线送满级VIP+神装，点击立即霸服！">
+    
+    <!-- 预览图链接 (修复为绝对路径以解决 FB 警告) -->
+    <meta property="og:image" content="https://games.aijue.xyz/yl.jpg">
+    <meta property="og:image:width" content="1021">
+    <meta property="og:image:height" content="482">
+    <meta property="og:site_name" content="海外手游福利站">
+
+    <!-- Facebook APP ID (修复缺失属性警告) -->
+    <meta property="fb:app_id" content="">
+
+    <!-- Twitter 卡片配置 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://games.aijue.xyz/yl.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --primary: #FFD700; --bg-dark: #050506; }
+        body { background-color: var(--bg-dark); color: #FFFFFF; font-family: 'Noto Sans SC', sans-serif; margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+        /* 全屏背景 */
+        .immersive-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% -10%, rgba(255, 215, 0, 0.15) 0%, transparent 60%), radial-gradient(circle at 100% 100%, rgba(255, 59, 48, 0.05) 0%, transparent 45%), var(--bg-dark); }
+        .cyber-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 35px 35px; mask-image: radial-gradient(circle at center, black, transparent 95%); }
+
+        /* 跑马灯 */
+        @keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
+        .animate-marquee { animation: marquee 35s linear infinite; will-change: transform; }
+
+        /* 按钮与卡片 */
+        .btn-shine { position: relative; overflow: hidden; background: linear-gradient(90deg, #FFD700, #F5A623); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3); }
+        .btn-shine::after { content: ''; position: absolute; top: -50%; left: -100%; width: 50%; height: 200%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: rotate(45deg); animation: shineMove 3s infinite; }
+        @keyframes shineMove { 0% { left: -100%; } 100% { left: 160%; } }
+        .glass-card { background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(20px); border: 1px solid rgba(255, 215, 0, 0.1); border-radius: 20px; }
+
+        /* 公告滚动 */
+        .rolling-wrapper { height: 36px; overflow: hidden; position: relative; }
+        .rolling-list { animation: slideUpExact 10s cubic-bezier(0.65, 0, 0.35, 1) infinite; will-change: transform; transform: translate3d(0, 0, 0); }
+        .rolling-item { height: 36px; line-height: 36px; display: flex; align-items: center; white-space: nowrap; }
+        @keyframes slideUpExact { 0%, 20% { transform: translate3d(0, 0, 0); } 25%, 45% { transform: translate3d(0, -36px, 0); } 50%, 70% { transform: translate3d(0, -72px, 0); } 75%, 95% { transform: translate3d(0, -108px, 0); } 100% { transform: translate3d(0, -144px, 0); } }
+
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .gold-glow { text-shadow: 0 0 15px rgba(255, 215, 0, 0.6); }
+
+        /* 重点优化：Hero 背景图自适应（防止拉伸，优化手机显示） */
+        .hero-bg-container { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+        .hero-bg-img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.4; }
+
+        @media (max-width: 400px) { .xs-hide { display: none; } }
+    </style>
+</head>
+<body class="antialiased select-none pb-48">
+
+    <div class="immersive-bg">
+        <div class="cyber-grid"></div>
+    </div>
+
+    <!-- 1. 顶部公告 -->
+    <nav class="fixed top-0 w-full z-[100] bg-black/90 backdrop-blur-md border-b border-white/5 py-2 overflow-hidden whitespace-nowrap uppercase">
+        <div class="flex animate-marquee text-[10px] font-black tracking-widest text-yellow-400">
+            <span class="mx-10 italic">⚡️ [海外加速] 全球节点直连优化：美/加/澳/欧/新 0延迟同步 ⚡️</span>
+            <span class="mx-10 italic text-white text-xs">🎁 [注册礼包] 成功注册即领 $20 代金券，支持 PayPal / 信用卡直充 🎁</span>
+        </div>
+    </nav>
+
+    <!-- 2. Hero 主视觉区 - 优化高度和背景展示 -->
+    <section class="relative min-h-[55vh] md:min-h-[85vh] flex flex-col items-center justify-center px-6 text-center pt-24 pb-16 overflow-hidden">
+        <div class="hero-bg-container">
+            <!-- object-cover 解决拉伸问题，opacity 解决背景过亮问题 -->
+            <img src="yl.jpg" class="hero-bg-img" alt="Hero BG">
+        </div>
+        <div class="absolute inset-0 z-10" style="background: radial-gradient(circle at center, transparent 0%, rgba(5,5,7,0.95) 90%);"></div>
+        
+        <div class="relative z-20 w-full max-w-xl">
+            <div class="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-black/50 border border-white/10 backdrop-blur-md mb-8">
+                <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]"></span>
+                <span class="text-[10px] font-bold orbitron tracking-[0.25em] text-gray-200 uppercase">2,419 PLAYERS OVERSEAS</span>
+            </div>
+            <h1 class="text-5xl md:text-8xl font-black italic tracking-tighter mb-4 leading-none uppercase">
+                爽玩国服手游<br>
+                <span class="text-yellow-400 gold-glow underline decoration-red-600 decoration-[8px] md:decoration-[10px] underline-offset-8">0.1折专区</span>
+            </h1>
+            <p class="text-gray-400 text-sm md:text-xl max-w-sm mx-auto leading-relaxed mb-12 opacity-95 font-medium">
+                别再花冤枉钱！海外华人专属加速通道。<br>
+                支持 PayPal / 外币直充，$1 体验 $100 快感。
+            </p>
+            <a id="hero-cta" href="javascript:void(0)" onclick="handleJump('box')"
+               class="btn-shine inline-block w-full sm:w-80 py-5 text-black font-black rounded-[2rem] text-xl italic tracking-widest uppercase shadow-2xl relative z-50">
+                立即安装福利盒子
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. 公告滚动 -->
+    <section class="px-6 -mt-8 md:-mt-16 relative z-40 mb-12">
+        <div class="glass-card max-w-md mx-auto p-4 flex items-center gap-4 border-yellow-400/20 shadow-2xl overflow-hidden">
+            <div class="bg-yellow-400 text-black p-2.5 rounded-2xl flex-shrink-0">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
+            </div>
+            <div class="flex-1 rolling-wrapper text-[11px] md:text-[12px] font-bold text-gray-200 italic">
+                <div class="rolling-list">
+                    <div class="rolling-item">海外玩家 <span class="text-yellow-400 px-1.5 font-black">Jason_LA</span> 直充 $1 获得 6480 元宝</div>
+                    <div class="rolling-item">玩家 <span class="text-yellow-400 px-1.5 font-black">Emma_TO</span> 领取了华人注册礼包</div>
+                    <div class="rolling-item">用户 <span class="text-yellow-400 px-1.5 font-black">Zhan***</span> 下载盒子激活霸服特权</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 对比区域 -->
+    <section class="px-4 py-16 w-full max-w-4xl mx-auto">
+        <div class="flex flex-row gap-2.5 md:gap-8 items-stretch">
+            <div class="glass-card flex-1 p-3.5 md:p-12 border-white/5 text-center flex flex-col justify-center min-w-0">
+                <p class="text-[9px] md:text-xs text-gray-500 font-black uppercase mb-2 tracking-widest">官方原价</p>
+                <p class="text-3xl md:text-7xl font-black text-gray-700 italic orbitron mb-3 leading-none">$100</p>
+                <div class="h-px w-full bg-white/10 mb-3"></div>
+                <p class="text-[8px] md:text-sm text-gray-500 font-bold leading-tight italic">仅 6480 元宝<br>无任何福利</p>
+            </div>
+            <div class="glass-card flex-1 p-3.5 md:p-12 border-yellow-400/30 text-center relative overflow-hidden flex flex-col justify-center min-w-0">
+                <div class="absolute top-0 right-0 bg-red-600 text-white text-[7px] md:text-[10px] font-black px-2 py-0.5 uppercase italic rounded-bl-xl shadow-lg">华人首选</div>
+                <p class="text-[9px] md:text-xs text-yellow-500 font-black mb-2 tracking-widest">0.1折专区</p>
+                <p class="text-3xl md:text-7xl font-black text-yellow-400 italic orbitron mb-3 gold-glow leading-none">$1.0</p>
+                <div class="h-px w-full bg-yellow-400/20 mb-3"></div>
+                <p class="text-[8px] md:text-sm text-yellow-400 font-black leading-tight italic underline decoration-red-600 font-bold">同样元宝<br>+满级VIP</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 强烈推荐 -->
+    <section class="px-4 py-10 w-full max-w-4xl mx-auto">
+        <h3 class="text-2xl font-black italic tracking-tighter mb-8 flex items-center gap-3">
+            <span class="w-1.5 h-7 bg-red-600 shadow-lg shadow-red-600/50"></span> 本周主打 · ACE CHOICE
+        </h3>
+        <div id="feature-card-container"></div>
+    </section>
+
+    <!-- 6. 游戏列表 -->
+    <section class="px-4 py-10 w-full max-w-4xl mx-auto">
+        <h3 class="text-[11px] font-black text-gray-600 italic tracking-[0.6em] uppercase mb-10 px-2">Welfare List / 更多人气游戏推荐</h3>
+        <div id="game-list" class="space-y-6"></div>
+    </section>
+
+    <!-- 7. iOS 指引 -->
+    <section class="mt-10 px-6 py-24 bg-white/[0.02] border-y border-white/5 w-full">
+        <h4 class="text-center font-black mb-16 tracking-[0.4em] text-[11px] uppercase text-gray-500 italic"> iOS Trust Installation Guide</h4>
+        <div class="max-w-xl mx-auto flex justify-between gap-4 text-center">
+            <div class="flex-1">
+                <div class="w-12 h-12 md:w-14 md:h-14 mx-auto bg-white/5 rounded-[1.2rem] flex items-center justify-center mb-5 border border-white/10 font-black text-xl orbitron text-gray-400">1</div>
+                <p class="text-[10px] md:text-[11px] text-gray-300">下载安装盒</p>
+            </div>
+            <div class="flex-1">
+                <div class="w-12 h-12 md:w-14 md:h-14 mx-auto bg-white/5 rounded-[1.2rem] flex items-center justify-center mb-5 border border-white/10 font-black text-xl orbitron text-gray-400">2</div>
+                <p class="text-[10px] md:text-[11px] text-gray-300">通用-管理</p>
+            </div>
+            <div class="flex-1">
+                <div class="w-12 h-12 md:w-14 md:h-14 mx-auto bg-yellow-400 text-black rounded-[1.2rem] flex items-center justify-center mb-5 border border-yellow-400 font-black text-xl orbitron shadow-[0_0_40px_rgba(251,191,36,0.6)]">3</div>
+                <p class="text-[10px] md:text-[11px] text-yellow-400 font-black underline underline-offset-4 decoration-2">点击信任证书</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. 转化悬浮 -->
+    <div class="fixed bottom-0 left-0 w-full p-4 md:p-6 z-[120] bg-gradient-to-t from-black via-black/95 to-transparent safe-bottom">
+        <div class="max-w-2xl mx-auto relative text-center">
+            <div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] font-black px-6 py-2 rounded-full animate-bounce shadow-2xl border border-red-500 uppercase tracking-tighter">
+                🎁 海外华人专属 888 霸服礼包 
+            </div>
+            <a id="float-footer-cta" href="javascript:void(0)" onclick="handleJump('box')"
+               class="flex items-center justify-between bg-yellow-400 p-2.5 pl-6 md:p-3.5 md:pl-10 rounded-[3rem] shadow-[0_30px_70px_rgba(251,191,36,0.5)] active:scale-95 group">
+                <div class="flex flex-col text-left overflow-hidden">
+                    <span class="text-black font-black text-[14px] md:text-lg italic uppercase truncate tracking-tight">开启霸服特权人生</span>
+                    <span class="text-black/40 text-[8px] md:text-[9px] font-black uppercase tracking-widest orbitron mt-0.5 xs-hide">Official Direct Link</span>
+                </div>
+                <div class="bg-black text-yellow-400 h-10 md:h-14 px-8 md:px-14 flex items-center justify-center rounded-[2.2rem] font-black text-xs md:text-sm italic shadow-2xl tracking-widest uppercase group-hover:scale-105 transition-transform">
+                    免费安装
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 9. 客服联系 (优化并排) -->
+    <footer class="px-4 py-24 text-center pb-40 flex justify-center w-full">
+        <div class="glass-card p-6 md:p-10 border-white/5 shadow-2xl max-w-2xl w-full">
+            <div class="mb-8">
+                <p class="text-[9px] md:text-[10px] text-gray-500 uppercase font-black mb-2 tracking-[0.4em] orbitron">Global Player Support</p>
+                <h2 class="text-xl md:text-2xl font-black text-white italic uppercase tracking-tighter">联系客服 · 领取福利</h2>
+                <p class="text-[11px] md:text-[12px] text-yellow-400/60 mt-2 font-bold italic">备注“海外玩家”优先通过</p>
+            </div>
+            <div id="contact-links" class="grid grid-cols-2 gap-3 md:gap-4">
+                <!-- 由 JS 渲染 -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const CONFIG = {
+            tgid: "cc0001100", 
+            boxUrl: "https://www-html.277sy.com/page/box1/?tgid=cc0001100",
+            contactLinks: [
+                { type: 'telegram', label: 'TG 客服', value: '@Game888', link: 'https://t.me/your_username' },
+                { type: 'whatsapp', label: 'WhatsApp', value: 'WhatsApp', link: 'https://wa.me/qr/Z7QIWHC3BMWDK1' },
+                { type: 'qq', label: 'QQ 交流', value: '371881432', link: 'https://qm.qq.com/q/eZCZJXAXAI' },
+                { type: 'wechat', label: '微信客服', value: 'cx28358', link: 'https://u.wechat.com/MD4f1loeGka5ilYMhqgnreg' }
+            ],
+                       games: [
+                {
+                    id: "14127", 
+                    name: "新凡人修仙传",
+                    desc: "角送元婴期伙伴掩月·南宫婉，送限定坐骑福虎，灵石*888，绑定灵石*1888，普通招募书*100",
+                    tags: ["本周最火", "官方直营"],
+                    // MP4 视频链接
+                    video: "https://mp4.277sy.com/sp/14127.mp4", 
+                    cover: "https://images.unsplash.com/photo-1514539079130-25950c84af65?auto=format&fit=crop&w=1000&q=80",
+                    manualLink: "", 
+                    isFeature: true
+                },
+                {
+                    id: "14241",
+                    name: "血饮天下（逆仙狂狗神器）",
+                    desc: "上线即送：登陆送自动回收、自动拾取、礼包码领取逆天令，逆天抽奖改命",
+                    tags: ["官方正版", "人气爆表"],
+                    icon: "https://p1.277sy.com/2026/01/22/6971e901e7360.gif",
+                    manualLink: "" 
+                },
+                {
+                    id: "14155",
+                    name: "忍者时刻（0.1折送5星忍者）",
+                    desc: "完成任务永久特权免费领,连续登录即送稀有忍者、金币、进阶石",
+                    tags: ["经典回归", "高爆霸服"],
+                    icon: "https://p1.277sy.com/2026/01/16/6969ec00ef581.gif",
+                    manualLink: "", 
+                    isHot: true
+                },
+                {
+                    id: "14249",
+                    name: "一剑江湖（3.5折免费版）",
+                    desc: "每天领代金券，0氪开启全特权,不卡关、真佛系的放置修仙手游",
+                    tags: ["唯美仙侠", "无尽资源"],
+                    icon: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=200&h=200&fit=crop",
+                    manualLink: "" 
+                }
+            ]
+        };
+
+        const ICONS = {
+            telegram: `<svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.003 9.464c-.149.659-.541.823-1.091.515l-3.057-2.252-1.475 1.42c-.162.162-.299.299-.612.299l.218-3.111 5.656-5.111c.246-.219-.054-.341-.381-.122l-6.991 4.402-3.016-.944c-.655-.205-.668-.655.137-.969l11.79-4.545c.546-.205 1.024.122.827.953z"/></svg>`,
+            whatsapp: `<svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.945 1.595 5.707l-.993 3.624 3.76-.986zm11.367-7.351c-.167-.281-.618-.448-1.287-.783-.669-.335-3.956-1.953-4.569-2.176-.613-.223-1.059-.335-1.494.335-.436.67-.1.436-.613 1.104-.223.334-.446.334-.781.167-.335-.167-1.415-.521-2.693-1.661-.995-.888-1.666-1.984-1.861-2.32-.195-.334-.021-.515.147-.681.151-.149.335-.39.503-.585.166-.195.223-.335.335-.558.11-.223.056-.418-.028-.585s-.67-1.618-.919-2.22c-.242-.588-.487-.509-.669-.518-.173-.009-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>`,
+            qq: `<svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 14c.5 0 1 .5 1 1v1c0 .5-.5 1-1 1h-1v1c0 .5-.5 1-1 1h-1v1c0 .5-.5 1-1 1h-6c-.5 0-1-.5-1-1v-1H7c-.5 0-1-.5-1-1v-1H5c-.5 0-1-.5-1-1v-1c0-.5.5-1 1-1h14zm-7-12c4.4 0 8 3.6 8 8 0 1.2-.3 2.3-.8 3.3L18 15H6l-.8-1.7c-.5-1-.8-2.1-.8-3.3 0-4.4 3.6-8 8-8zm-3 6.5c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zm6 0c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5z"/></svg>`,
+            wechat: `<svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.3 2c-4.4 0-8 3.1-8 7c0 2.1 1.1 4 3 5.4l-.8 2.3 2.5-1.2c1.1.3 2.2.5 3.3.5 4.4 0 8-3.1 8-7s-3.6-7-8-7zm10.7 8c-3.3 0-6 2.4-6 5.3s2.7 5.3 6 5.3c.9 0 1.7-.2 2.5-.5l1.9.9-.6-1.8c1.3-1 2.2-2.4 2.2-3.9 0-2.9-2.7-5.3-6-5.3z"/></svg>`
+        };
+
+        function getJumpUrl(gameId) { return `https://pc.277sy.com/?tgid=${CONFIG.tgid}&appid=#/gameinfo/gameid/${gameId}`; }
+
+        function handleJump(type, gameId = null) {
+            let target = "";
+            if (type === 'box') { target = CONFIG.boxUrl; }
+            else if (type === 'game' && gameId) { target = getJumpUrl(gameId); }
+            if (target) window.location.href = target;
+        }
+
+        function initApp() {
+            // 客服按钮并排
+            const contactContainer = document.getElementById('contact-links');
+            if(contactContainer) {
+                contactContainer.innerHTML = CONFIG.contactLinks.map(c => `
+                    <a href="${c.link}" target="_blank" class="glass-card p-2 md:p-4 flex flex-col md:flex-row items-center gap-2 group border border-white/5 active:bg-yellow-400/10">
+                        <div class="p-2 bg-white/5 rounded-lg text-yellow-400 group-hover:text-yellow-500">${ICONS[c.type]}</div>
+                        <div class="text-center md:text-left overflow-hidden w-full">
+                            <p class="text-[8px] text-gray-500 orbitron uppercase truncate">${c.label}</p>
+                            <p class="text-[10px] md:text-[13px] text-white font-bold italic truncate">${c.value}</p>
+                        </div>
+                    </a>
+                `).join('');
+            }
+
+            // 特推卡片
+            const f = CONFIG.games.find(g => g.isFeature);
+            if(f) {
+                document.getElementById('feature-card-container').innerHTML = `
+                    <div onclick="window.location.href='${getJumpUrl(f.id)}'" class="block relative rounded-[1.5rem] overflow-hidden glass-card p-1 group cursor-pointer">
+                        <div class="relative w-full aspect-video md:h-96 md:aspect-auto rounded-[1rem] overflow-hidden bg-gray-900">
+                            <video src="${f.video}" poster="${f.cover}" autoplay muted loop playsinline class="w-full h-full object-cover"></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3 flex flex-col md:flex-row justify-between items-start md:items-end gap-2 text-left">
+                                <div>
+                                    <span class="bg-red-600 text-white text-[8px] px-2 py-0.5 rounded-full mb-1 inline-block orbitron tracking-tighter uppercase italic">Hot Choice</span>
+                                    <h4 class="text-xl md:text-5xl font-black text-white italic uppercase">${f.name}</h4>
+                                </div>
+                                <div class="bg-white text-black px-4 py-1.5 rounded-lg text-[10px] font-black uppercase group-hover:bg-yellow-400">立即霸服</div>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+
+            // 列表卡片
+            document.getElementById('game-list').innerHTML = CONFIG.games.filter(g => !g.isFeature).map(game => `
+                <div onclick="handleJump('game', '${game.id}')" class="glass-card p-3 flex items-center gap-3 transition-all active:scale-95 cursor-pointer">
+                    <div class="relative flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border border-white/10">
+                        <img src="${game.icon}" class="w-full h-full object-cover" alt="${game.name}">
+                        ${game.isHot ? '<span class="absolute top-0 left-0 bg-red-600 text-white text-[7px] px-1.5 py-0.5 font-black italic rounded-br-lg uppercase">Hot</span>' : ''}
+                    </div>
+                    <div class="flex-1 min-w-0 text-left">
+                        <h5 class="font-black text-[14px] text-white italic truncate uppercase">${game.name}</h5>
+                        <p class="text-[9px] text-gray-500 mt-0.5 line-clamp-2 italic opacity-80">${game.desc}</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full border border-yellow-400/20 flex items-center justify-center text-yellow-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M9 5l7 7-7 7"></path></svg></div>
+                </div>`).join('');
+        }
+
+        window.onload = initApp;
+    </script>
+</body>
+</html>
