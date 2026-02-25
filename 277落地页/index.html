@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <!-- ★ Facebook Pixel ID —— 只改这一行，下方 fbq init 自动生效 -->
+    <!-- noscript 图片的 id= 参数仍须手动同步（HTML 无法读取 JS 变量） -->
+    <script>var FB_PIXEL_ID = '1467769168276771';</script>
+
+    <title>海外华人手游福利站 - 国服手游0.1折爽玩</title>
+    <meta name="description" content="海外华人专属福利盒子，支持PayPal/微信/支付宝直充，0.1折爽玩正版授权国服手游，上线即送满级VIP与顶级神装！">
+    <link rel="icon" href="https://p1.277sy.com/2026/01/16/6969ec00ef581.gif" type="image/gif">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.aijue.xyz/">
+    <meta property="og:title" content="🔥别再花冤枉钱！海外华人玩国服手游只要 0.1 折！">
+    <meta property="og:description" content="👉 注册即送 $20 无门槛代金券！支持 PayPal/信用卡直充。国服同服不卡顿，上线送满级VIP+神装，点击立即霸服！">
+    <meta property="og:image" content="https://www.aijue.xyz/yl.jpg">
+    <meta property="og:image:width" content="1021">
+    <meta property="og:image:height" content="482">
+    <meta property="og:site_name" content="海外手游福利站">
+
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', FB_PIXEL_ID);
+        fbq('track', 'PageView');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #FFD700;
+            --bg-dark: #050506;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 全局 Loading 遮罩防白屏闪烁 */
+        #global-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: var(--bg-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 215, 0, 0.2);
+            border-top-color: #FFD700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 全屏背景与特效 */
+        .immersive-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% -10%, rgba(255, 215, 0, 0.15) 0%, transparent 60%), radial-gradient(circle at 100% 100%, rgba(255, 59, 48, 0.05) 0%, transparent 45%), var(--bg-dark);
+        }
+
+        .cyber-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 35px 35px;
+            mask-image: radial-gradient(circle at center, black, transparent 95%);
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
+        }
+
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+            will-change: transform;
+        }
+
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(90deg, #FFD700, #F5A623);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: rotate(45deg);
+            animation: shineMove 3s infinite;
+        }
+
+        @keyframes shineMove {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 160%;
+            }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+        }
+
+        /* 公告滚动 */
+        .rolling-wrapper {
+            height: 36px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .rolling-list {
+            animation: slideUpExact 14s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+            will-change: transform;
+        }
+
+        .rolling-item {
+            height: 36px;
+            line-height: 36px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        @keyframes slideUpExact {
+
+            0%,
+            20% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            23%,
+            43% {
+                transform: translate3d(0, -36px, 0);
+            }
+
+            46%,
+            66% {
+                transform: translate3d(0, -72px, 0);
+            }
+
+            69%,
+            89% {
+                transform: translate3d(0, -108px, 0);
+            }
+
+            92%,
+            100% {
+                transform: translate3d(0, -144px, 0);
+            }
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .gold-glow {
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        .hero-bg-container {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .hero-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.4;
+        }
+
+        .hero-subtitle {
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 2px 12px rgba(0, 0, 0, 0.8), 0 4px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-subtitle-wrap {
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(4px);
+            border-radius: 12px;
+            padding: 8px 20px;
+            display: inline-block;
+        }
+
+        .welfare-tag {
+            display: inline-flex;
+            align-items: center;
+            font-size: 9px;
+            font-weight: 900;
+            font-style: italic;
+            padding: 2px 7px;
+            border-radius: 6px;
+            line-height: 1.4;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+
+        .welfare-tag-red {
+            background: #dc2626;
+            color: #fff;
+            box-shadow: 0 0 8px rgba(220, 38, 38, 0.5);
+        }
+
+        .welfare-tag-gold {
+            background: linear-gradient(90deg, #b8860b, #FFD700);
+            color: #000;
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+        }
+
+        .pay-icon-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            padding: 4px 12px 4px 8px;
+            font-size: 10px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 400px) {
+            .xs-hide {
+                display: none;
+            }
+        }
+
+        /* 微信弹窗样式 */
+        .wx-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .wx-modal-overlay.show {
+            display: flex;
+        }
+
+        .wx-modal-box {
+            background: #111118;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 360px;
+            padding: 28px 24px 24px;
+            position: relative;
+            animation: wxModalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes wxModalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.88) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .wx-modal-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
+        }
+
+        .wx-modal-icon {
+            width: 52px;
+            height: 52px;
+            background: #09B83E;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+        }
+
+        .wx-modal-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .wx-modal-hint {
+            text-align: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.45);
+            margin-bottom: 18px;
+        }
+
+        .wx-id-box {
+            background: rgba(255, 215, 0, 0.07);
+            border: 1px dashed rgba(255, 215, 0, 0.4);
+            border-radius: 12px;
+            padding: 10px 16px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 900;
+            color: #FFD700;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .wx-id-box:active {
+            background: rgba(255, 215, 0, 0.15);
+        }
+
+        .wx-copied-tip {
+            text-align: center;
+            font-size: 11px;
+            color: #22c55e;
+            margin-bottom: 14px;
+            height: 16px;
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+
+        .wx-copied-tip.show {
+            opacity: 1;
+        }
+
+        .wx-steps {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 18px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 2;
+        }
+
+        .wx-steps li {
+            list-style: none;
+        }
+
+        .wx-steps li::before {
+            content: attr(data-n) '  ';
+            color: #FFD700;
+            font-weight: 900;
+        }
+
+        .wx-btn-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .wx-btn {
+            flex: 1;
+            padding: 13px 0;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 900;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .wx-btn-cancel {
+            background: rgba(255, 255, 255, 0.07);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .wx-btn-cancel:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .wx-btn-open {
+            background: #09B83E;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(9, 184, 62, 0.4);
+        }
+
+        .wx-btn-open:hover {
+            background: #07a234;
+            transform: scale(1.03);
+        }
+
+        .wx-qr-wrap {
+            display: none;
+            text-align: center;
+            margin-top: 14px;
+        }
+
+        .wx-qr-wrap img {
+            width: 140px;
+            height: 140px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            background: #fff;
+            margin: 0 auto;
+        }
+
+        .wx-qr-wrap p {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 8px;
+        }
+
+        /* ===== 倒计时紧迫感横幅 ===== */
+        .countdown-bar {
+            background: linear-gradient(90deg, #7f1d1d, #dc2626, #7f1d1d);
+            background-size: 200% 100%;
+            animation: countdownPulse 3s ease infinite;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 900;
+            text-align: center;
+            padding: 7px 16px;
+            letter-spacing: 0.04em;
+            position: relative;
+            z-index: 101;
+        }
+
+        @keyframes countdownPulse {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .countdown-digits {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: 8px;
+        }
+
+        .cd-block {
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 5px;
+            padding: 1px 6px;
+            font-family: 'Orbitron', monospace;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            min-width: 28px;
+            text-align: center;
+        }
+
+        .cd-sep {
+            opacity: 0.7;
+            font-size: 13px;
+        }
+
+        /* ===== WhatsApp 快捷咨询条 ===== */
+        .wa-strip {
+            background: linear-gradient(90deg, #064e3b, #059669, #064e3b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: 900;
+            color: #fff;
+            cursor: pointer;
+            transition: filter 0.2s;
+            text-decoration: none;
+        }
+
+        .wa-strip:hover {
+            filter: brightness(1.15);
+        }
+
+        .wa-strip-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        /* ===== 社会证明数字栏 ===== */
+        .social-proof-bar {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            border-top: 1px solid rgba(255, 215, 0, 0.08);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+            padding: 14px 0;
+            flex-wrap: wrap;
+        }
+
+        .sp-item {
+            flex: 1;
+            min-width: 90px;
+            text-align: center;
+            padding: 4px 12px;
+            border-right: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .sp-item:last-child {
+            border-right: none;
+        }
+
+        .sp-num {
+            font-family: 'Orbitron', monospace;
+            font-size: 18px;
+            font-weight: 900;
+            color: #FFD700;
+            display: block;
+        }
+
+        .sp-label {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 2px;
+            display: block;
+        }
+
+        /* Hero 双按钮行 */
+        .hero-cta-row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            width: 100%;
+        }
+
+        @media (min-width: 480px) {
+            .hero-cta-row {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 14px 28px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 2rem;
+            font-size: 13px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.05em;
+            transition: all 0.2s;
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(255, 215, 0, 0.5);
+            color: #FFD700;
+            background: rgba(255, 215, 0, 0.07);
+        }
+    </style>
+</head>
+
+<body class="antialiased select-none pb-48">
+
+    <div id="global-loader">
+        <div class="spinner"></div>
+        <div class="mt-4 text-yellow-400 font-bold tracking-widest text-sm orbitron">LOADING...</div>
+    </div>
+
+    <div class="immersive-bg">
+        <div class="cyber-grid"></div>
+    </div>
+
+    <nav
+        class="fixed top-0 w-full z-[100] bg-black/90 backdrop-blur-md border-b border-white/5 py-2 overflow-hidden whitespace-nowrap uppercase">
+        <div id="marquee-track" class="flex animate-marquee text-[10px] font-black tracking-widest text-yellow-400">
+        </div>
+    </nav>
+
+    <section
+        class="relative min-h-[55vh] md:min-h-[85vh] flex flex-col items-center justify-center px-6 text-center pt-24 pb-16 overflow-hidden">
+        <div class="hero-bg-container">
+            <img src="yl.jpg" class="hero-bg-img" alt="Hero BG" fetchpriority="high">
+        </div>
+        <div class="absolute inset-0 z-10" style="background:
+            linear-gradient(to right,  rgba(5,5,7,1) 0%, rgba(5,5,7,0.85) 15%, transparent 30%, transparent 70%, rgba(5,5,7,0.85) 85%, rgba(5,5,7,1) 100%),
+            linear-gradient(to bottom, rgba(5,5,7,0.65) 0%, transparent 22%, transparent 78%, rgba(5,5,7,0.9) 100%),
+            radial-gradient(ellipse 60% 80% at center, transparent 30%, rgba(5,5,7,0.88) 100%);"></div>
+
+        <div class="relative z-20 w-full max-w-xl">
+            <div
+                class="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-black/50 border border-white/10 backdrop-blur-md mb-8">
+                <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]"></span>
+                <span id="online-count"
+                    class="text-[10px] font-bold orbitron tracking-[0.25em] text-gray-200 uppercase">— PLAYERS
+                    OVERSEAS</span>
+            </div>
+            <h1
+                class="text-5xl md:text-8xl 2xl:text-7xl font-black italic tracking-tighter mb-4 leading-none uppercase">
+                爽玩国服手游<br>
+                <span
+                    class="text-yellow-400 gold-glow underline decoration-red-600 decoration-[8px] md:decoration-[10px] underline-offset-8">0.1折专区</span>
+            </h1>
+
+            <div class="mb-8">
+                <div class="hero-subtitle-wrap">
+                    <p class="hero-subtitle text-white text-sm md:text-lg font-black tracking-widest">无需实名 &nbsp;/&nbsp;
+                        全球直连 &nbsp;/&nbsp; 华人专属</p>
+                    <p class="hero-subtitle text-gray-300 text-[11px] md:text-base font-medium mt-1 opacity-90">
+                        别再花冤枉钱！支持 PayPal / 外币直充，<br class="md:hidden">$1 体验 $100 快感。</p>
+                </div>
+            </div>
+
+            <!-- ⏳ 倒计时紧迫感 -->
+            <div class="mb-6 inline-flex items-center gap-2 text-[11px] font-black text-red-400 tracking-wide">
+                <span class="w-2 h-2 bg-red-500 rounded-full animate-ping inline-block"></span>
+                今日注册专属优惠，剩余时间
+                <span class="countdown-digits">
+                    <span class="cd-block" id="cd-h">00</span>
+                    <span class="cd-sep">:</span>
+                    <span class="cd-block" id="cd-m">00</span>
+                    <span class="cd-sep">:</span>
+                    <span class="cd-block" id="cd-s">00</span>
+                </span>
+            </div>
+
+            <!-- ★ 双 CTA 按钮：主=强转化，次=弱转化 -->
+            <div class="hero-cta-row">
+                <a id="hero-cta" href="javascript:void(0)" onclick="handleJump('download')"
+                    class="btn-shine inline-block w-full sm:w-auto px-10 py-5 text-black font-black rounded-[2rem] text-lg md:text-xl italic tracking-widest uppercase shadow-2xl relative z-50">
+                    🔥 立即领取888霸服礼包
+                </a>
+                <a href="javascript:void(0)" onclick="handleJump('gamelist')"
+                    class="btn-secondary w-full sm:w-auto text-center">
+                    🎮 先挑选游戏
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 社会证明数字栏 -->
+    <div class="social-proof-bar">
+        <div class="sp-item">
+            <span class="sp-num" id="sp-users">—</span>
+            <span class="sp-label">累计服务海外玩家</span>
+        </div>
+        <div class="sp-item">
+            <span class="sp-num">98.6%</span>
+            <span class="sp-label">好评率</span>
+        </div>
+        <div class="sp-item">
+            <span class="sp-num">$0.99</span>
+            <span class="sp-label">最低首充价格</span>
+        </div>
+        <div class="sp-item">
+            <span class="sp-num">3秒</span>
+            <span class="sp-label">充值到账速度</span>
+        </div>
+    </div>
+
+    <!-- WhatsApp 快捷咨询条（href 由 JS 从 CONFIG 动态写入） -->
+    <a id="wa-strip-link" href="javascript:void(0)" target="_blank" class="wa-strip"
+        onclick="if(typeof fbq!=='undefined'){fbq('track','Contact');}">
+        <svg class="wa-strip-icon" viewBox="0 0 24 24" fill="#fff">
+            <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.945 1.595 5.707l-.993 3.624 3.76-.986zm11.367-7.351c-.167-.281-.618-.448-1.287-.783-.669-.335-3.956-1.953-4.569-2.176-.613-.223-1.059-.335-1.494.335-.436.67-.1.436-.613 1.104-.223.334-.446.334-.781.167-.335-.167-1.415-.521-2.693-1.661-.995-.888-1.666-1.984-1.861-2.32-.195-.334-.021-.515.147-.681.151-.149.335-.39.503-.585.166-.195.223-.335.335-.558.11-.223.056-.418-.028-.585s-.67-1.618-.919-2.22c-.242-.588-.487-.509-.669-.518-.173-.009-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        </svg>
+        <span>💬 WhatsApp 直接咨询客服 · 备注「海外玩家」优先回复</span>
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" />
+        </svg>
+    </a>
+
+    <section class="px-6 mt-4 md:mt-8 relative z-40 mb-12">
+        <div
+            class="glass-card max-w-md mx-auto p-4 flex items-center gap-4 border-yellow-400/20 shadow-2xl overflow-hidden">
+            <div class="bg-yellow-400 text-black p-2.5 rounded-2xl flex-shrink-0">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z">
+                    </path>
+                </svg>
+            </div>
+            <div class="flex-1 rolling-wrapper text-[11px] md:text-[12px] font-bold text-gray-200 italic">
+                <div class="rolling-list">
+                    <div class="rolling-item">海外玩家 <span class="text-yellow-400 px-1.5 font-black">Jason_LA</span> 直充 $1
+                        获得 6480 元宝</div>
+                    <div class="rolling-item">玩家 <span class="text-yellow-400 px-1.5 font-black">Emma_TO</span>
+                        领取了华人注册礼包 🎁</div>
+                    <div class="rolling-item">用户 <span class="text-yellow-400 px-1.5 font-black">Zhan***</span>
+                        下载盒子激活霸服特权</div>
+                    <div class="rolling-item">新用户 <span class="text-yellow-400 px-1.5 font-black">Kevin_SYD</span> 首充
+                        $0.99 入手满级VIP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-4 py-10 w-full max-w-4xl mx-auto">
+        <div class="flex items-center gap-3 mb-6">
+            <span class="w-1.5 h-7 bg-yellow-400 shadow-lg shadow-yellow-400/50 rounded-sm"></span>
+            <h3 class="text-lg md:text-2xl font-black italic tracking-tight text-white uppercase">省钱对比 · Save Your Money
+            </h3>
+        </div>
+        <!-- flex 行布局，高度自适应，彻底解决内容截断 -->
+        <div class="flex rounded-[1.5rem] overflow-hidden"
+            style="background:#0a0a0c; border:1px solid rgba(255,215,0,0.12);">
+
+            <!-- 左侧：暗色悲惨区 -->
+            <div class="flex-1 flex flex-col items-center justify-center px-4 md:px-10 py-8 text-center"
+                style="background:linear-gradient(135deg,#0d0d10 0%,#111116 100%);">
+                <div class="text-2xl md:text-4xl mb-2 opacity-40">😭</div>
+                <p class="text-[9px] md:text-[11px] text-gray-600 font-black uppercase tracking-[0.15em] mb-2">官方充值</p>
+                <p class="font-black italic orbitron leading-none text-gray-700 line-through"
+                    style="font-size:clamp(2rem,6vw,4.5rem); text-decoration-color:#dc2626; text-decoration-thickness:3px;">
+                    $100</p>
+                <p class="text-[9px] text-gray-700 font-bold mt-2 italic">= 6,480 元宝</p>
+                <div class="mt-3 space-y-1 text-left w-full max-w-[160px]">
+                    <p class="text-[9px] md:text-[11px] text-gray-700 italic">❌ 苦苦打怪无礼包</p>
+                    <p class="text-[9px] md:text-[11px] text-gray-700 italic">❌ 须繁琐实名认证</p>
+                    <p class="text-[9px] md:text-[11px] text-gray-700 italic">❌ 无专属客服支持</p>
+                </div>
+            </div>
+
+            <!-- 中间旋转折扣徽章（flex列，固定宽度） -->
+            <div class="flex-shrink-0 flex flex-col items-center justify-center relative" style="width:72px;">
+                <div class="absolute inset-0 w-px mx-auto opacity-10"
+                    style="background:linear-gradient(to bottom,transparent,rgba(255,215,0,0.8),transparent);"></div>
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full flex flex-col items-center justify-center border-2 border-yellow-400/60 z-10"
+                    style="background:radial-gradient(circle,#c8910a,#FFD700); box-shadow:0 0 24px rgba(255,215,0,0.65),0 0 48px rgba(255,215,0,0.25); animation:spin 10s linear infinite;">
+                    <span class="text-black font-black orbitron leading-tight" style="font-size:0.65rem;">0.1</span>
+                    <span class="text-black font-black leading-tight" style="font-size:0.55rem;">折</span>
+                </div>
+            </div>
+
+            <!-- 右侧：金色爆炸区 -->
+            <div class="flex-1 flex flex-col items-center justify-center px-4 md:px-10 py-8 text-center relative overflow-hidden"
+                style="background:linear-gradient(135deg,#1a1200 0%,#0f0900 100%);">
+                <div class="absolute inset-0 pointer-events-none"
+                    style="background:radial-gradient(ellipse at center,rgba(255,215,0,0.18) 0%,transparent 70%);">
+                </div>
+                <div
+                    class="absolute top-0 right-0 bg-red-600 text-white text-[8px] md:text-[11px] font-black px-3 py-1 rounded-bl-xl italic shadow-lg uppercase">
+                    🔥 华人首选</div>
+                <div class="relative z-10 text-center">
+                    <p class="text-[9px] md:text-[11px] text-yellow-500 font-black uppercase tracking-[0.15em] mb-2">
+                        0.1折专区</p>
+                    <p class="font-black italic orbitron leading-none gold-glow"
+                        style="font-size:clamp(2.5rem,8vw,5.5rem); color:#FFD700; filter:drop-shadow(0 0 25px rgba(255,215,0,0.55));">
+                        $1<span style="font-size:55%">.0</span></p>
+                    <p class="text-[9px] text-yellow-400 font-black mt-2 italic">= 6,480 元宝</p>
+                    <div class="mt-3 space-y-1 text-left w-full max-w-[160px] mx-auto">
+                        <p class="text-[9px] md:text-[11px] text-yellow-300 italic">✅ 上线即送满级VIP</p>
+                        <p class="text-[9px] md:text-[11px] text-yellow-300 italic">✅ PayPal 外币秒充</p>
+                        <p class="text-[9px] md:text-[11px] text-yellow-300 italic">✅ 专属华人客服</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部节省额 -->
+        <div class="mt-4 text-center">
+            <span class="inline-flex items-center gap-2 text-[11px] md:text-sm font-black italic">
+                <span class="text-green-400">▼</span>
+                <span class="text-gray-400">每次充值节省</span>
+                <span class="orbitron text-lg md:text-2xl font-black text-white gold-glow">$99</span>
+                <span class="text-gray-400">省下的钱可以再充</span>
+                <span class="orbitron text-lg md:text-2xl font-black text-yellow-400">99次</span>
+                <span class="text-gray-500">！</span>
+            </span>
+        </div>
+    </section>
+
+    <section class="px-4 py-10 w-full max-w-4xl mx-auto">
+        <h3 class="text-2xl font-black italic tracking-tighter mb-8 flex items-center gap-3"><span
+                class="w-1.5 h-7 bg-red-600 shadow-lg shadow-red-600/50"></span> 本周主打 · ACE CHOICE</h3>
+        <div id="feature-card-container"></div>
+    </section>
+
+    <section class="px-4 py-10 w-full max-w-4xl mx-auto">
+        <h3 class="text-[11px] font-black text-gray-600 italic tracking-[0.6em] uppercase mb-10 px-2">Welfare List /
+            更多人气游戏推荐</h3>
+        <div id="game-list" class="space-y-6"></div>
+    </section>
+
+    <section class="mt-10 px-6 py-24 bg-white/[0.02] border-y border-white/5 w-full text-center">
+        <h4 class="font-black mb-10 tracking-[0.4em] text-[11px] uppercase text-gray-500 italic">iOS Trust Installation
+            Guide</h4>
+
+        <div class="max-w-xl mx-auto flex justify-between gap-4">
+            <div class="flex-1">
+                <div
+                    class="w-12 h-12 md:w-14 md:h-14 mx-auto bg-white/5 rounded-[1.2rem] flex items-center justify-center mb-5 border border-white/10 font-black text-xl orbitron text-gray-400">
+                    1</div>
+                <p class="text-[10px] md:text-[11px] text-gray-300">下载安装盒</p>
+            </div>
+            <div class="flex-1">
+                <div
+                    class="w-12 h-12 md:w-14 md:h-14 mx-auto bg-white/5 rounded-[1.2rem] flex items-center justify-center mb-5 border border-white/10 font-black text-xl orbitron text-gray-400">
+                    2</div>
+                <p class="text-[10px] md:text-[11px] text-gray-300">通用-设备管理</p>
+            </div>
+            <div class="flex-1">
+                <div
+                    class="w-12 h-12 md:w-14 md:h-14 mx-auto bg-yellow-400 text-black rounded-[1.2rem] flex items-center justify-center mb-5 border border-yellow-400 font-black text-xl orbitron shadow-[0_0_40px_rgba(251,191,36,0.6)]">
+                    3</div>
+                <p
+                    class="text-[10px] md:text-[11px] text-yellow-400 font-black underline underline-offset-4 decoration-2">
+                    信任企业证书</p>
+            </div>
+        </div>
+
+        <div class="mt-10 max-w-sm mx-auto">
+            <p class="text-[10px] text-gray-400 mb-4">*此为未上架海外App Store的福利服专属标准流程，安全稳定请放心操作</p>
+
+            <div
+                class="mt-8 max-w-[280px] mx-auto text-left bg-[#000000] rounded-[18px] border border-white/10 overflow-hidden shadow-2xl relative">
+                <div class="px-4 py-3 border-b border-white/10 bg-[#1C1C1E] flex items-center justify-between">
+                    <div class="flex items-center gap-1 text-[#0A84FF] text-[15px]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                        通用
+                    </div>
+                    <span class="text-white text-[15px] font-bold">VPN与设备管理</span>
+                    <span class="w-12"></span>
+                </div>
+
+                <div class="px-4 py-2 mt-2">
+                    <p class="text-[11px] text-gray-500 uppercase ml-2 mb-1 tracking-wider">企业级 APP</p>
+                    <div class="bg-[#1C1C1E] rounded-xl px-4 py-3 flex items-center justify-between">
+                        <span class="text-white text-[14px]">Game Distribution...</span>
+                        <span class="text-gray-500">＞</span>
+                    </div>
+                </div>
+
+                <div class="px-4 py-2 mb-4 mt-1 relative">
+                    <div class="absolute -inset-1 bg-yellow-400/20 rounded-xl blur-md animate-pulse"></div>
+                    <div class="relative bg-[#1C1C1E] rounded-xl px-4 py-3 text-center border border-yellow-400/30">
+                        <span class="text-[#0A84FF] text-[15px]">信任 "Game Distribution..."</span>
+                    </div>
+                    <div class="absolute right-6 -bottom-4 text-3xl animate-bounce">👆</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="fixed bottom-0 left-0 w-full p-4 md:p-6 z-[120] bg-gradient-to-t from-black via-black/95 to-transparent"
+        style="padding-bottom: max(1rem, env(safe-area-inset-bottom));">
+        <div class="max-w-2xl mx-auto relative text-center">
+            <div id="cta-badge"
+                class="absolute -top-12 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] font-black px-6 py-2 rounded-full animate-bounce shadow-2xl border border-red-500 uppercase tracking-tighter"
+                style="transition: opacity 0.3s ease, transform 0.3s ease;">
+                🎁 海外华人专属 888 霸服礼包
+            </div>
+            <a id="float-footer-cta" href="javascript:void(0)" onclick="handleJump('download')"
+                class="flex items-center justify-between bg-yellow-400 p-2.5 pl-6 md:p-3.5 md:pl-10 rounded-[3rem] shadow-[0_30px_70px_rgba(251,191,36,0.5)] active:scale-95 group">
+                <div class="flex flex-col text-left overflow-hidden">
+                    <span
+                        class="text-black font-black text-[14px] md:text-lg italic uppercase truncate tracking-tight">开启霸服特权人生</span>
+                    <span
+                        class="text-black/40 text-[8px] md:text-[9px] font-black uppercase tracking-widest orbitron mt-0.5 xs-hide">Official
+                        Direct Link</span>
+                </div>
+                <div
+                    class="bg-black text-yellow-400 h-10 md:h-14 px-8 md:px-14 flex items-center justify-center rounded-[2.2rem] font-black text-xs md:text-sm italic shadow-2xl tracking-widest uppercase group-hover:scale-105 transition-transform">
+                    一键安装盒子
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer class="px-4 py-24 text-center pb-40 flex justify-center w-full">
+        <div class="glass-card p-6 md:p-10 border-white/5 shadow-2xl max-w-2xl w-full">
+            <div class="mb-6">
+                <p class="text-[9px] md:text-[10px] text-gray-500 uppercase font-black mb-2 tracking-[0.4em] orbitron">
+                    Global Player Support</p>
+                <h2 class="text-xl md:text-2xl font-black text-white italic uppercase tracking-tighter">联系客服 · 领取福利</h2>
+                <p class="text-[11px] md:text-[12px] text-yellow-400/60 mt-2 font-bold italic">备注"海外玩家"优先通过</p>
+            </div>
+
+            <div class="flex items-center justify-center gap-3 mb-6 flex-wrap">
+                <div class="pay-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="#09B83E">
+                        <path
+                            d="M8.3 2c-4.4 0-8 3.1-8 7c0 2.1 1.1 4 3 5.4l-.8 2.3 2.5-1.2c1.1.3 2.2.5 3.3.5 4.4 0 8-3.1 8-7s-3.6-7-8-7zm10.7 8c-3.3 0-6 2.4-6 5.3s2.7 5.3 6 5.3c.9 0 1.7-.2 2.5-.5l1.9.9-.6-1.8c1.3-1 2.2-2.4 2.2-3.9 0-2.9-2.7-5.3-6-5.3z" />
+                    </svg><span>WeChat Pay</span></div>
+                <div class="pay-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1677FF">
+                        <path
+                            d="M21.4 4H2.6C1.7 4 1 4.7 1 5.6v12.8c0 .9.7 1.6 1.6 1.6h18.8c.9 0 1.6-.7 1.6-1.6V5.6c0-.9-.7-1.6-1.6-1.6zm-9 11.9c-1.1.4-2.3.1-3.2-.6l-1.3.7.3-1.4C6.8 13.4 6.2 11.5 7 9.9c.8-1.5 2.5-2.3 4.2-2 .7.1 1.3.4 1.9.8l-1 1c-.3-.3-.7-.5-1.1-.5-1.1-.1-2 .6-2.2 1.7-.2 1 .4 2 1.3 2.4 1.5.6 3.3-.2 3.7-1.8h-2v-1.2h3.3c.1.3.1.5.1.8 0 2-1.4 3.6-3.8 3.8zm6.8-1.6l-2.3-1.3c.8-.7 1.3-1.7 1.3-2.8 0-2.1-1.7-3.8-3.8-3.8s-3.8 1.7-3.8 3.8c0 .2 0 .4.1.7-.4 0-.9-.1-1.3-.2 0-.2-.1-.4-.1-.5 0-2.8 2.3-5.1 5.1-5.1s5.1 2.3 5.1 5.1c0 1.6-.7 3-1.8 4l1.5.8-.1 1.3z" />
+                    </svg><span>Alipay 支付宝</span></div>
+                <div class="pay-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="#003087">
+                        <path
+                            d="M7.076 21.337H4.272a.641.641 0 0 1-.633-.74L6.24 1.893a.75.75 0 0 1 .74-.627h5.993c2.573 0 4.491.747 5.7 2.219.561.678.92 1.407 1.072 2.168.159.796.137 1.732-.067 2.783-.688 3.62-3.044 5.463-7.003 5.463H9.91a.75.75 0 0 0-.74.635l-.79 5.003a.641.641 0 0 1-.633.54h-1.67v.26zM20.25 8.354a5.7 5.7 0 0 1-.056.445c-.838 4.29-3.703 6.288-8.433 6.288h-2.254a.75.75 0 0 0-.74.635l-1.003 6.354a.338.338 0 0 0 .333.388h2.33a.641.641 0 0 0 .633-.546l.655-4.14a.75.75 0 0 1 .74-.636h1.51c3.78 0 6.223-1.883 7.01-5.44.355-1.632.187-2.945-.725-3.948z" />
+                    </svg><span>PayPal</span></div>
+            </div>
+            <p class="text-[10px] text-gray-500 italic mb-6">✅ 华人自营 · 无需找老外代充 · 秒到账</p>
+
+            <div id="contact-links" class="grid grid-cols-2 gap-3 md:gap-4">
+            </div>
+        </div>
+    </footer>
+
+    <div class="wx-modal-overlay" id="wxModal" style="display:none">
+        <div class="wx-modal-box">
+            <button class="wx-modal-close" id="wxModalClose">×</button>
+            <div class="wx-modal-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff">
+                    <path
+                        d="M8.3 2c-4.4 0-8 3.1-8 7c0 2.1 1.1 4 3 5.4l-.8 2.3 2.5-1.2c1.1.3 2.2.5 3.3.5 4.4 0 8-3.1 8-7s-3.6-7-8-7zm10.7 8c-3.3 0-6 2.4-6 5.3s2.7 5.3 6 5.3c.9 0 1.7-.2 2.5-.5l1.9.9-.6-1.8c1.3-1 2.2-2.4 2.2-3.9 0-2.9-2.7-5.3-6-5.3z" />
+                </svg>
+            </div>
+            <div class="wx-modal-title">添加微信客服</div>
+            <div class="wx-modal-hint">微信号已自动复制 · 点击下方绿色按钮打开微信</div>
+            <div class="wx-id-box" id="wxIdBox" onclick="wxCopyId()"></div>
+            <div class="wx-copied-tip" id="wxCopiedTip">✅ 微信号已复制到剪贴板</div>
+            <ul class="wx-steps">
+                <li data-n="1">打开微信</li>
+                <li data-n="2">点右上角「+」→ 添加朋友</li>
+                <li data-n="3">粘贴微信号搜索并添加</li>
+            </ul>
+            <div class="wx-qr-wrap" id="wxQrWrap">
+                <img src="" alt="微信二维码">
+                <p>📷 手机扫码也可添加</p>
+            </div>
+            <div class="wx-btn-row">
+                <button class="wx-btn wx-btn-cancel" id="wxModalCancel">取消</button>
+                <button class="wx-btn wx-btn-open" id="wxModalOpen">📱 打开微信</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =====================================
+        // ★ 核心配置区 —— 改这里，全页自动同步
+        // =====================================
+        const CONFIG = {
+            // 推广参数（只改这一处，所有跳转链接自动更新）
+            tgid: "cc0001100",
+            get boxDownloadUrl() { return `https://reg.277sy.com/?tgid=${this.tgid}`; },  // 强转化
+            get gameListUrl() { return `https://mob.277sy.com/?tgid=${this.tgid}`; },  // 弱转化
+
+            // FB 像素 ID（引用 head 顶部的全局变量，无需重复填写）
+            fbPixelId: FB_PIXEL_ID,
+
+            // 站点域名（用于 OG 标签等）
+            siteUrl: "https://www.aijue.xyz/",
+
+            // 游戏详情页域名
+            pcBaseUrl: "https://pc.277sy.com",
+
+            // 社会证明初始基数（只改这里，HTML 和 JS 均从此读取）
+            initOnlineCount: 2419,
+            initUserCount: 32841,
+
+            // 顶部跑马灯文案
+            marqueeTexts: [
+                { text: '⚡️ [海外加速] 全球节点直连优化：美/加/澳/欧/新 0延迟同步 ⚡️', highlight: true },
+                { text: '🎁 [注册礼包] 成功注册即领 $20 代金券，支持 PayPal / 信用卡直充 🎁', highlight: false },
+            ],
+
+            contactLinks: [
+                { type: 'telegram', label: 'TG 客服', value: '@gaeeba', link: 'https://t.me/gaeeba' },
+                { type: 'whatsapp', label: 'WhatsApp', value: 'WhatsApp', link: 'https://wa.me/qr/HLCOPEOYA5RID1' },
+                { type: 'qq', label: 'QQ 交流', value: '371881432', link: 'https://qm.qq.com/q/eZCZJXAXAI' },
+                { type: 'wechat', label: '微信客服', value: 'cx28358', link: 'https://u.wechat.com/MD4f1loeGka5ilYMhqgnreg', wechatId: 'cx28358', wechatQr: 'wx_qr.png' }
+            ],
+            games: [
+                {
+                    id: "14127",
+                    name: "新凡人修仙传",
+                    desc: "角送元婴期伙伴掩月·南宫婉，送限定坐骑福虎，灵石*888，绑定灵石*1888，普通招募书*100",
+                    tags: ["本周最火", "官方直营"],
+                    welfareTags: [{ text: "上线送V12", cls: "welfare-tag-gold" }, { text: "首充全免", cls: "welfare-tag-red" }],
+                    video: "https://mp4.277sy.com/sp/14127.mp4",
+                    cover: "game_cover_xinxiu.png",
+                    isFeature: true
+                },
+                {
+                    id: "14241",
+                    name: "血饮天下（逆仙狂狗神器）",
+                    desc: "上线即送：登陆送自动回收、自动拾取、礼包码领取逆天令，逆天抽奖改命",
+                    tags: ["官方正版", "人气爆表"],
+                    welfareTags: [{ text: "无限爆红装", cls: "welfare-tag-red" }],
+                    icon: "https://p1.277sy.com/2026/01/22/6971e901e7360.gif"
+                },
+                {
+                    id: "14155",
+                    name: "忍者时刻（0.1折送5星忍者）",
+                    desc: "完成任务永久特权免费领,连续登录即送稀有忍者、金币、进阶石",
+                    tags: ["经典回归", "高爆霸服"],
+                    welfareTags: [{ text: "首充0.1折", cls: "welfare-tag-gold" }, { text: "送5星忍者", cls: "welfare-tag-red" }],
+                    icon: "https://p1.277sy.com/2026/01/16/6969ec00ef581.gif",
+                    isHot: true
+                },
+                {
+                    id: "14249",
+                    name: "一剑江湖（3.5折免费版）",
+                    desc: "每天领代金券，0氪开启全特权,不卡关、真佛系的放置修仙手游",
+                    tags: ["唯美仙侠", "无尽资源"],
+                    welfareTags: [{ text: "0氪全特权", cls: "welfare-tag-gold" }],
+                    icon: "game_icon_yijian.png"
+                }
+            ]
+        };
+
+        const ICONS = {
+            telegram: `<svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.003 9.464c-.149.659-.541.823-1.091.515l-3.057-2.252-1.475 1.42c-.162.162-.299.299-.612.299l.218-3.111 5.656-5.111c.246-.219-.054-.341-.381-.122l-6.991 4.402-3.016-.944c-.655-.205-.668-.655.137-.969l11.79-4.545c.546-.205 1.024.122.827.953z"/></svg>`,
+            whatsapp: `<svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.945 1.595 5.707l-.993 3.624 3.76-.986zm11.367-7.351c-.167-.281-.618-.448-1.287-.783-.669-.335-3.956-1.953-4.569-2.176-.613-.223-1.059-.335-1.494.335-.436.67-.1.436-.613 1.104-.223.334-.446.334-.781.167-.335-.167-1.415-.521-2.693-1.661-.995-.888-1.666-1.984-1.861-2.32-.195-.334-.021-.515.147-.681.151-.149.335-.39.503-.585.166-.195.223-.335.335-.558.11-.223.056-.418-.028-.585s-.67-1.618-.919-2.22c-.242-.588-.487-.509-.669-.518-.173-.009-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>`,
+            qq: `<svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 14c.5 0 1 .5 1 1v1c0 .5-.5 1-1 1h-1v1c0 .5-.5 1-1 1h-6c-.5 0-1-.5-1-1v-1H7c-.5 0-1-.5-1-1v-1H5c-.5 0-1-.5-1-1v-1c0-.5.5-1 1-1h14zm-7-12c4.4 0 8 3.6 8 8 0 1.2-.3 2.3-.8 3.3L18 15H6l-.8-1.7c-.5-1-.8-2.1-.8-3.3 0-4.4 3.6-8 8-8zm-3 6.5c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zm6 0c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5z"/></svg>`,
+            wechat: `<svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.3 2c-4.4 0-8 3.1-8 7c0 2.1 1.1 4 3 5.4l-.8 2.3 2.5-1.2c1.1.3 2.2.5 3.3.5 4.4 0 8-3.1 8-7s-3.6-7-8-7zm10.7 8c-3.3 0-6 2.4-6 5.3s2.7 5.3 6 5.3c.9 0 1.7-.2 2.5-.5l1.9.9-.6-1.8c1.3-1 2.2-2.4 2.2-3.9 0-2.9-2.7-5.3-6-5.3z"/></svg>`
+        };
+
+        // 移除 Loading 遮罩（用 DOMContentLoaded 代替 load，DOM 就绪即渲染内容，无需等图片/视频）
+        document.addEventListener('DOMContentLoaded', () => {
+            initApp();
+        });
+        // Loading 遮罩在所有资源加载完后再隐藏，保持视觉一致
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('global-loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+            }
+        });
+
+        // 获取特定游戏的直达链接
+        function getJumpUrl(gameId) { return `${CONFIG.pcBaseUrl}/?tgid=${CONFIG.tgid}&appid=#/gameinfo/gameid/${gameId}`; }
+
+        // ★ 核心跳转中枢（集成了 FB 追踪事件）
+        function handleJump(type, gameId = null) {
+            let target = "";
+            if (type === 'download') {
+                target = CONFIG.boxDownloadUrl;
+                // 触发 FB 像素高价值转化事件 (Lead)
+                if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+            }
+            else if (type === 'gamelist') {
+                target = CONFIG.gameListUrl;
+                // 触发辅助事件 (浏览内容)
+                if (typeof fbq !== 'undefined') { fbq('track', 'ViewContent'); }
+            }
+            else if (type === 'game' && gameId) {
+                target = getJumpUrl(gameId);
+                // 游戏点击也上报 ViewContent，帮助 FB 优化受众
+                if (typeof fbq !== 'undefined') { fbq('track', 'ViewContent', { content_ids: [gameId], content_type: 'product' }); }
+            }
+
+            if (target) {
+                // 对游戏直链立即跳转；对关键转化先等像素发送
+                if (type === 'game') {
+                    window.location.href = target;
+                } else {
+                    setTimeout(() => { window.location.href = target; }, 120);
+                }
+            }
+        }
+
+        // 微信弹窗逻辑（所有账号数据均从 CONFIG.contactLinks 读取，无本地兜底）
+        (function () {
+            // 兼容现代 iPad（iPadOS 13+ 默认返回桌面端 UA）
+            const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile/i.test(navigator.userAgent)
+                || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            const modal = document.getElementById('wxModal');
+            const btnOpen = document.getElementById('wxModalOpen');
+            const btnCancel = document.getElementById('wxModalCancel');
+            const btnClose = document.getElementById('wxModalClose');
+            const idBox = document.getElementById('wxIdBox');
+            const copiedTip = document.getElementById('wxCopiedTip');
+            const qrWrap = document.getElementById('wxQrWrap');
+
+            if (!isMobile && qrWrap) qrWrap.style.display = 'block';
+
+            // 初始化时从 CONFIG 填充微信号和二维码
+            const wxCfg = CONFIG.contactLinks.find(c => c.type === 'wechat');
+            const wxId = wxCfg ? (wxCfg.wechatId || wxCfg.value) : '';
+            if (idBox) idBox.textContent = wxId;
+            const qrImg = qrWrap && qrWrap.querySelector('img');
+            if (qrImg) {
+                // 优先使用本地上传的二维码图片（wechatQr 字段），否则降级到 API 生成
+                if (wxCfg && wxCfg.wechatQr) {
+                    qrImg.src = wxCfg.wechatQr;
+                } else if (wxId) {
+                    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(wxId)}`;
+                }
+            }
+
+            async function doCopy(text) {
+                try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) { await navigator.clipboard.writeText(text); }
+                    else {
+                        const ta = document.createElement('textarea'); ta.value = text; ta.style.cssText = 'position:fixed;left:-9999px;opacity:0';
+                        document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+                    }
+                } catch (e) { }
+            }
+
+            window.wxCopyId = function () {
+                doCopy(wxId);
+                if (copiedTip) { copiedTip.classList.add('show'); setTimeout(() => copiedTip.classList.remove('show'), 2500); }
+            };
+
+            window.openWechatModal = async function () {
+                await doCopy(wxId);
+                if (copiedTip) copiedTip.classList.add('show');
+                setTimeout(() => copiedTip && copiedTip.classList.remove('show'), 2500);
+                modal.classList.add('show'); document.body.style.overflow = 'hidden';
+            };
+
+            function closeModal() { modal.classList.remove('show'); document.body.style.overflow = ''; }
+            if (btnCancel) btnCancel.addEventListener('click', closeModal);
+            if (btnClose) btnClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+            if (btnOpen) { btnOpen.addEventListener('click', function () { window.location.href = 'weixin://'; }); }
+        })();
+
+        function renderWelfareTags(tags) {
+            if (!tags || !tags.length) return '';
+            return tags.map(t => `<span class="welfare-tag ${t.cls}">${t.text}</span>`).join('');
+        }
+
+        // 初始化渲染列表和组件
+        function initApp() {
+            // ★ 渲染跑马灯（从 CONFIG 读取，双份保证无缝滚动）
+            const marqueeTrack = document.getElementById('marquee-track');
+            if (marqueeTrack && CONFIG.marqueeTexts.length) {
+                const items = [...CONFIG.marqueeTexts, ...CONFIG.marqueeTexts]; // 双份循环
+                marqueeTrack.innerHTML = items.map(m =>
+                    `<span class="mx-10 italic${m.highlight ? '' : ' text-white text-xs'}">${m.text}</span>`
+                ).join('');
+            }
+
+            // ★ 动态设置顶部 WhatsApp 条的链接（从 CONFIG 读取，保持同步）
+            const waCfg = CONFIG.contactLinks.find(c => c.type === 'whatsapp');
+            const waStrip = document.getElementById('wa-strip-link');
+            if (waStrip && waCfg) waStrip.href = waCfg.link;
+
+            // 客服按钮
+            const contactContainer = document.getElementById('contact-links');
+            if (contactContainer) {
+                contactContainer.innerHTML = CONFIG.contactLinks.map(c => {
+                    if (c.type === 'wechat') {
+                        return `
+                        <a href="javascript:void(0)" onclick="openWechatModal()" class="glass-card p-2 md:p-4 flex flex-col md:flex-row items-center gap-2 group border border-yellow-400/20 active:bg-yellow-400/10 cursor-pointer">
+                            <div class="p-2 bg-white/5 rounded-lg text-yellow-400 group-hover:text-yellow-500">${ICONS[c.type]}</div>
+                            <div class="text-center md:text-left overflow-hidden w-full">
+                                <p class="text-[8px] text-gray-500 orbitron uppercase truncate">${c.label}</p>
+                                <p class="text-[10px] md:text-[13px] text-white font-bold italic truncate">${c.value}</p>
+                                <p class="text-[7px] text-yellow-400/60 mt-0.5 truncate">点击 · 自动复制微信号</p>
+                            </div>
+                        </a>`;
+                    }
+                    return `
+                    <a href="${c.link}" target="_blank" class="glass-card p-2 md:p-4 flex flex-col md:flex-row items-center gap-2 group border border-white/5 active:bg-yellow-400/10">
+                        <div class="p-2 bg-white/5 rounded-lg text-yellow-400 group-hover:text-yellow-500">${ICONS[c.type]}</div>
+                        <div class="text-center md:text-left overflow-hidden w-full">
+                            <p class="text-[8px] text-gray-500 orbitron uppercase truncate">${c.label}</p>
+                            <p class="text-[10px] md:text-[13px] text-white font-bold italic truncate">${c.value}</p>
+                        </div>
+                    </a>`;
+                }).join('');
+            }
+
+            // 特推卡片
+            const f = CONFIG.games.find(g => g.isFeature);
+            if (f) {
+                document.getElementById('feature-card-container').innerHTML = `
+                    <div onclick="handleJump('game', '${f.id}')" class="block relative rounded-[1.5rem] overflow-hidden glass-card p-1 group cursor-pointer">
+                        <div class="relative w-full aspect-video md:h-96 md:aspect-auto rounded-[1rem] overflow-hidden bg-gray-900">
+                            <video src="${f.video}" poster="${f.cover}" preload="none" autoplay muted loop playsinline class="w-full h-full object-cover"></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3 flex flex-col md:flex-row justify-between items-start md:items-end gap-2 text-left">
+                                <div>
+                                    <span class="bg-red-600 text-white text-[8px] px-2 py-0.5 rounded-full mb-1 inline-block orbitron tracking-tighter uppercase italic">Hot Choice</span>
+                                    <h4 class="text-xl md:text-5xl font-black text-white italic uppercase">${f.name}</h4>
+                                    <div class="flex gap-1.5 mt-2 flex-wrap">${renderWelfareTags(f.welfareTags)}</div>
+                                </div>
+                                <div class="bg-white text-black px-4 py-1.5 rounded-lg text-[10px] font-black uppercase group-hover:bg-yellow-400 transition-colors">立即霸服</div>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+
+            // 列表卡片 (带有图片懒加载)
+            document.getElementById('game-list').innerHTML = CONFIG.games.filter(g => !g.isFeature).map(game => `
+                <div onclick="handleJump('game', '${game.id}')" class="glass-card p-3 flex items-center gap-3 transition-all active:scale-95 cursor-pointer hover:border-yellow-400/30 hover:bg-white/[0.06]" style="transition: border-color 0.2s, background 0.2s, transform 0.1s;">
+                    <div class="relative flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border border-white/10">
+                        <img src="${game.icon}" class="w-full h-full object-cover" alt="${game.name}" loading="lazy">
+                        ${game.isHot ? '<span class="absolute top-0 left-0 bg-red-600 text-white text-[7px] px-1.5 py-0.5 font-black italic rounded-br-lg uppercase">Hot</span>' : ''}
+                    </div>
+                    <div class="flex-1 min-w-0 text-left">
+                        <h5 class="font-black text-[14px] text-white italic truncate uppercase">${game.name}</h5>
+                        <div class="flex gap-1 mt-1 flex-wrap">${renderWelfareTags(game.welfareTags)}</div>
+                        <p class="text-[9px] text-gray-500 mt-1 line-clamp-1 italic opacity-80">${game.desc}</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full border border-yellow-400/20 flex items-center justify-center text-yellow-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M9 5l7 7-7 7"></path></svg></div>
+                </div>`).join('');
+
+            // ★ 在线人数动态波动（每5秒 ±1~5 随机变化，真实感）
+            const onlineEl = document.getElementById('online-count');
+            if (onlineEl) {
+                let baseCount = CONFIG.initOnlineCount + Math.floor(Math.random() * 100) - 50;
+                onlineEl.textContent = baseCount.toLocaleString() + ' PLAYERS OVERSEAS';
+                setInterval(() => {
+                    const delta = Math.floor(Math.random() * 7) - 3; // -3 ~ +3
+                    baseCount = Math.max(CONFIG.initOnlineCount - 120, Math.min(CONFIG.initOnlineCount + 180, baseCount + delta));
+                    onlineEl.textContent = baseCount.toLocaleString() + ' PLAYERS OVERSEAS';
+                }, 5000);
+            }
+
+            // ★ 滚动时隐藏底部礼包标签，停止滚动后淡入
+            const ctaBadge = document.getElementById('cta-badge');
+            if (ctaBadge) {
+                let scrollTimer = null;
+                window.addEventListener('scroll', () => {
+                    ctaBadge.style.opacity = '0';
+                    ctaBadge.style.transform = 'translateX(-50%) translateY(8px)';
+                    clearTimeout(scrollTimer);
+                    scrollTimer = setTimeout(() => {
+                        ctaBadge.style.opacity = '1';
+                        ctaBadge.style.transform = 'translateX(-50%) translateY(0)';
+                    }, 600);
+                }, { passive: true });
+            }
+            // ★ 倒计时：每次访问随机 4~8 小时，sessionStorage 保持连续性
+            (function initCountdown() {
+                const KEY = 'cd_ends';
+                let endsAt = parseInt(sessionStorage.getItem(KEY) || '0');
+                if (!endsAt || endsAt <= Date.now()) {
+                    const hoursLeft = 4 + Math.random() * 4; // 4~8h 随机
+                    endsAt = Date.now() + hoursLeft * 3600 * 1000;
+                    sessionStorage.setItem(KEY, endsAt);
+                }
+                function tick() {
+                    const diff = Math.max(0, endsAt - Date.now());
+                    const h = Math.floor(diff / 3600000);
+                    const m = Math.floor((diff % 3600000) / 60000);
+                    const s = Math.floor((diff % 60000) / 1000);
+                    const fmt = n => String(n).padStart(2, '0');
+                    const cdH = document.getElementById('cd-h');
+                    const cdM = document.getElementById('cd-m');
+                    const cdS = document.getElementById('cd-s');
+                    if (cdH) cdH.textContent = fmt(h);
+                    if (cdM) cdM.textContent = fmt(m);
+                    if (cdS) cdS.textContent = fmt(s);
+                    if (diff <= 0) { endsAt = Date.now() + 6 * 3600 * 1000; sessionStorage.setItem(KEY, endsAt); }
+                }
+                tick();
+                setInterval(tick, 1000);
+            })();
+
+            // ★ 社会证明用户数：每 30 秒随机 +1~3，模拟真实增长
+            const spUsers = document.getElementById('sp-users');
+            if (spUsers) {
+                let uBase = CONFIG.initUserCount + Math.floor(Math.random() * 200);
+                spUsers.textContent = uBase.toLocaleString();
+                setInterval(() => {
+                    uBase += Math.floor(Math.random() * 3) + 1;
+                    spUsers.textContent = uBase.toLocaleString();
+                }, 30000);
+            }
+        }
+    </script>
+</body>
+
+</html>
