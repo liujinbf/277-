@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <!-- ★ Facebook Pixel ID —— 只改这一行，下方 fbq init 自动生效 -->
-    <!-- noscript 图片的 id= 参数仍须手动同步（HTML 无法读取 JS 变量） -->
     <script>var FB_PIXEL_ID = '1467769168276771';</script>
 
     <title>海外华人手游福利站 - 国服手游0.1折爽玩</title>
@@ -39,10 +37,8 @@
         fbq('track', 'PageView');
     </script>
 
-    <!-- 1. 预加载核心背景图 (提升LCP) -->
     <link rel="preload" as="image" href="yl.jpg" fetchpriority="high">
 
-    <!-- 2. 字体异步加载优化 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style"
@@ -51,7 +47,6 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
 
-    <!-- 3. Tailwind CSS CDN 使用官方构建，但增加 async/defer 或者使用国内节点提升稳定性。 这里保留官方，由浏览器后台解析 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
@@ -691,7 +686,6 @@
                 </div>
             </div>
 
-            <!-- ⏳ 倒计时紧迫感 -->
             <div class="mb-6 inline-flex items-center gap-2 text-[11px] font-black text-red-400 tracking-wide">
                 <span class="w-2 h-2 bg-red-500 rounded-full animate-ping inline-block"></span>
                 今日注册专属优惠，剩余时间
@@ -704,9 +698,8 @@
                 </span>
             </div>
 
-            <!-- ★ 双 CTA 按钮：主=强转化，次=弱转化 -->
             <div class="hero-cta-row">
-                <a id="hero-cta" href="javascript:void(0)" onclick="handleJump('download')"
+                <a id="hero-cta" href="javascript:void(0)" onclick="handleJump('hero_gift')"
                     class="btn-shine inline-block w-full sm:w-auto px-10 py-5 text-black font-black rounded-[2rem] text-lg md:text-xl italic tracking-widest uppercase shadow-2xl relative z-50">
                     🔥 立即领取888霸服礼包
                 </a>
@@ -718,7 +711,6 @@
         </div>
     </section>
 
-    <!-- 社会证明数字栏 -->
     <div class="social-proof-bar">
         <div class="sp-item">
             <span class="sp-num" id="sp-users">—</span>
@@ -738,7 +730,6 @@
         </div>
     </div>
 
-    <!-- WhatsApp 快捷咨询条（href 由 JS 从 CONFIG 动态写入） -->
     <a id="wa-strip-link" href="javascript:void(0)" target="_blank" class="wa-strip"
         onclick="if(typeof fbq!=='undefined'){fbq('track','Contact');}">
         <svg class="wa-strip-icon" viewBox="0 0 24 24" fill="#fff">
@@ -782,11 +773,9 @@
             <h3 class="text-lg md:text-2xl font-black italic tracking-tight text-white uppercase">省钱对比 · Save Your Money
             </h3>
         </div>
-        <!-- flex 行布局，高度自适应，彻底解决内容截断 -->
         <div class="flex rounded-[1.5rem] overflow-hidden"
             style="background:#0a0a0c; border:1px solid rgba(255,215,0,0.12);">
 
-            <!-- 左侧：暗色悲惨区 -->
             <div class="flex-1 flex flex-col items-center justify-center px-4 md:px-10 py-8 text-center"
                 style="background:linear-gradient(135deg,#0d0d10 0%,#111116 100%);">
                 <div class="text-2xl md:text-4xl mb-2 opacity-40">😭</div>
@@ -802,7 +791,6 @@
                 </div>
             </div>
 
-            <!-- 中间旋转折扣徽章（flex列，固定宽度） -->
             <div class="flex-shrink-0 flex flex-col items-center justify-center relative" style="width:72px;">
                 <div class="absolute inset-0 w-px mx-auto opacity-10"
                     style="background:linear-gradient(to bottom,transparent,rgba(255,215,0,0.8),transparent);"></div>
@@ -813,7 +801,6 @@
                 </div>
             </div>
 
-            <!-- 右侧：金色爆炸区 -->
             <div class="flex-1 flex flex-col items-center justify-center px-4 md:px-10 py-8 text-center relative overflow-hidden"
                 style="background:linear-gradient(135deg,#1a1200 0%,#0f0900 100%);">
                 <div class="absolute inset-0 pointer-events-none"
@@ -837,7 +824,6 @@
                 </div>
             </div>
         </div>
-        <!-- 底部节省额 -->
         <div class="mt-4 text-center">
             <span class="inline-flex items-center gap-2 text-[11px] md:text-sm font-black italic">
                 <span class="text-green-400">▼</span>
@@ -981,7 +967,7 @@
         </div>
     </footer>
 
-    <div class="wx-modal-overlay" id="wxModal" style="display:none">
+    <div class="wx-modal-overlay" id="wxModal">
         <div class="wx-modal-box">
             <button class="wx-modal-close" id="wxModalClose">×</button>
             <div class="wx-modal-icon">
@@ -1017,7 +1003,11 @@
         const CONFIG = {
             // 推广参数（只改这一处，所有跳转链接自动更新）
             tgid: "cc0001100",
-            get boxDownloadUrl() { return `https://reg.277sy.com/?tgid=${this.tgid}`; },  // 强转化
+
+            // 👇 ★ 修改：首屏和底部分开配置链接
+            get heroGiftUrl() { return `https://reg.277sy.com/?tgid=${this.tgid}`; },  // 首屏强转化：保持去注册页
+            get boxDownloadUrl() { return `https://www-html.277sy.com/page/box1/?tgid=${this.tgid}`; }, // 底部强转化：去新版安装页
+
             get gameListUrl() { return `https://mob.277sy.com/?tgid=${this.tgid}`; },  // 弱转化
 
             // FB 像素 ID（引用 head 顶部的全局变量，无需重复填写）
@@ -1120,9 +1110,16 @@
         // ★ 核心跳转中枢（集成了 FB 追踪事件）
         function handleJump(type, gameId = null) {
             let target = "";
-            if (type === 'download') {
-                target = CONFIG.boxDownloadUrl;
+
+            // 👇 ★ 新增：专门处理首屏“888礼包”按钮跳转
+            if (type === 'hero_gift') {
+                target = CONFIG.heroGiftUrl;
                 // 触发 FB 像素高价值转化事件 (Lead)
+                if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+            }
+            // 👇 ★ 修改：底部悬浮安装按钮跳转新页面
+            else if (type === 'download') {
+                target = CONFIG.boxDownloadUrl;
                 if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
             }
             else if (type === 'gamelist') {
