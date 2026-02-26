@@ -38,11 +38,20 @@
         fbq('init', FB_PIXEL_ID);
         fbq('track', 'PageView');
     </script>
+
+    <!-- 1. 预加载核心背景图 (提升LCP) -->
+    <link rel="preload" as="image" href="yl.jpg" fetchpriority="high">
+
+    <!-- 2. 字体异步加载优化 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+
+    <!-- 3. Tailwind CSS CDN 使用官方构建，但增加 async/defer 或者使用国内节点提升稳定性。 这里保留官方，由浏览器后台解析 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
@@ -1085,11 +1094,21 @@
         // 移除 Loading 遮罩（用 DOMContentLoaded 代替 load，DOM 就绪即渲染内容，无需等图片/视频）
         document.addEventListener('DOMContentLoaded', () => {
             initApp();
-        });
-        // Loading 遮罩在所有资源加载完后再隐藏，保持视觉一致
-        window.addEventListener('load', () => {
+
+            // ★ 解除阻塞：DOM 加载完成后强制关闭 Loader，最长只等 0.5 秒
             const loader = document.getElementById('global-loader');
             if (loader) {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.style.display = 'none', 500);
+                }, 500);
+            }
+        });
+
+        // 兜底逻辑：如果 load 提前触发，也立刻关掉
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('global-loader');
+            if (loader && loader.style.display !== 'none') {
                 loader.style.opacity = '0';
                 setTimeout(() => loader.style.display = 'none', 500);
             }
