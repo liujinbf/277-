@@ -699,11 +699,13 @@
             </div>
 
             <div class="hero-cta-row">
-                <a id="hero-cta" href="javascript:void(0)" onclick="handleJump('hero_gift')"
+                <a id="hero-cta" href="javascript:void(0)"
+                    onclick="handleJump('hero_gift'); if(typeof fbq!=='undefined'){fbq('track','Lead');}"
                     class="btn-shine inline-block w-full sm:w-auto px-10 py-5 text-black font-black rounded-[2rem] text-lg md:text-xl italic tracking-widest uppercase shadow-2xl relative z-50">
                     🔥 立即领取888霸服礼包
                 </a>
-                <a href="javascript:void(0)" onclick="handleJump('gamelist')"
+                <a href="javascript:void(0)"
+                    onclick="handleJump('gamelist'); if(typeof fbq!=='undefined'){fbq('track','ViewContent');}"
                     class="btn-secondary w-full sm:w-auto text-center">
                     🎮 先挑选游戏
                 </a>
@@ -1037,12 +1039,12 @@
             ],
             games: [
                 {
-                    id: "14127",
-                    name: "新凡人修仙传",
-                    desc: "角送元婴期伙伴掩月·南宫婉，送限定坐骑福虎，灵石*888，绑定灵石*1888，普通招募书*100",
+                    id: "13567",
+                    name: "逍遥蜀山（0.05折超爆养龙打金）",
+                    desc: "【超值特惠】全场尊享0.05折，首充只要0.03元，在线免费送VIP15，【御剑飞行】剑鸣震碎千山寂，瞬息已过万重峰，完成任务免费送-青空飞剑",
                     tags: ["本周最火", "官方直营"],
                     welfareTags: [{ text: "上线送V12", cls: "welfare-tag-gold" }, { text: "首充全免", cls: "welfare-tag-red" }],
-                    video: "https://mp4.277sy.com/sp/14127.mp4",
+                    video: "https://mp4.277sy.com/sp/13567.mp4",
                     cover: "game_cover_xinxiu.png",
                     isFeature: true
                 },
@@ -1347,6 +1349,28 @@
                 }, 30000);
             }
         }
+
+        // 启动应用并设置加载容错
+        window.addEventListener('DOMContentLoaded', () => {
+            initApp();
+            // 容错：即使资源没加载完，3秒后也强制关闭加载动画
+            setTimeout(() => {
+                const loader = document.getElementById('global-loader');
+                if (loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.style.display = 'none', 500);
+                }
+            }, 3000);
+        });
+
+        // 页面资源全加载后移除动画
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('global-loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+            }
+        });
     </script>
 </body>
 
