@@ -7,14 +7,14 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <script>var FB_PIXEL_ID = '1467769168276771';</script>
 
-    <title>海外华人手游福利站 - 国服手游0.1折爽玩</title>
-    <meta name="description" content="海外华人专属福利盒子，支持PayPal/微信/支付宝直充，0.1折爽玩正版授权国服手游，上线即送满级VIP与顶级神装！">
+    <title>海外华人手游福利站 - 国服手游低至0.05折 · 上线满级VIP</title>
+    <meta name="description" content="海外华人专属福利盒子，支持PayPal/微信/支付宝直充，低至0.05折爽玩正版授权国服手游，上线即送满级VIP与顶级神装！仙侠/三国/动漫全品类！">
     <link rel="icon" href="https://p1.277sy.com/2026/01/16/6969ec00ef581.gif" type="image/gif">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.aijue.xyz/">
-    <meta property="og:title" content="🔥别再花冤枉钱！海外华人玩国服手游只要 0.1 折！">
-    <meta property="og:description" content="👉 注册即送 $20 无门槛代金券！支持 PayPal/信用卡直充。国服同服不卡顿，上线送满级VIP+神装，点击立即霸服！">
+    <meta property="og:title" content="🔥别再花冤枉钱！海外华人玩国服手游低至 0.05 折！">
+    <meta property="og:description" content="👉 注册即送 $20 无门槛代金券！支持 PayPal/信用卡直充。上线即满级VIP+神装，仙侠/三国/动漫全品类，点击立即霸服！">
     <meta property="og:image" content="https://www.aijue.xyz/yl.jpg">
     <meta property="og:image:width" content="1021">
     <meta property="og:image:height" content="482">
@@ -201,13 +201,8 @@
             }
 
             69%,
-            89% {
-                transform: translate3d(0, -108px, 0);
-            }
-
-            92%,
             100% {
-                transform: translate3d(0, -144px, 0);
+                transform: translate3d(0, -108px, 0);
             }
         }
 
@@ -382,6 +377,9 @@
             margin-bottom: 10px;
             cursor: pointer;
             transition: background 0.2s;
+            /* 允许用户手动选中并复制微信号（即使 body 设置了 select-none） */
+            user-select: text !important;
+            -webkit-user-select: text !important;
         }
 
         .wx-id-box:active {
@@ -632,6 +630,22 @@
             color: #FFD700;
             background: rgba(255, 215, 0, 0.07);
         }
+
+        /* 游戏图标加载失败降级 */
+        .icon-fallback {
+            background: linear-gradient(135deg, #1a1230, #2d1b69) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .icon-fallback::after {
+            content: attr(data-fallback);
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffd700;
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -674,15 +688,15 @@
                 class="text-5xl md:text-8xl 2xl:text-7xl font-black italic tracking-tighter mb-4 leading-none uppercase">
                 爽玩国服手游<br>
                 <span
-                    class="text-yellow-400 gold-glow underline decoration-red-600 decoration-[8px] md:decoration-[10px] underline-offset-8">0.1折专区</span>
+                    class="text-yellow-400 gold-glow underline decoration-red-600 decoration-[8px] md:decoration-[10px] underline-offset-8">低至0.05折</span>
             </h1>
 
             <div class="mb-8">
                 <div class="hero-subtitle-wrap">
                     <p class="hero-subtitle text-white text-sm md:text-lg font-black tracking-widest">无需实名 &nbsp;/&nbsp;
-                        全球直连 &nbsp;/&nbsp; 华人专属</p>
+                        上线满级VIP &nbsp;/&nbsp; 华人专属</p>
                     <p class="hero-subtitle text-gray-300 text-[11px] md:text-base font-medium mt-1 opacity-90">
-                        别再花冤枉钱！支持 PayPal / 外币直充，<br class="md:hidden">$1 体验 $100 快感。</p>
+                        别再花冤枉钱！支持 PayPal / 外币直充，<br class="md:hidden">$1 体验 $100 快感 · 开局即满V神装。</p>
                 </div>
             </div>
 
@@ -699,13 +713,11 @@
             </div>
 
             <div class="hero-cta-row">
-                <a id="hero-cta" href="javascript:void(0)"
-                    onclick="handleJump('hero_gift'); if(typeof fbq!=='undefined'){fbq('track','Lead');}"
+                <a id="hero-cta" href="javascript:void(0)" onclick="handleJump('hero_gift')"
                     class="btn-shine inline-block w-full sm:w-auto px-10 py-5 text-black font-black rounded-[2rem] text-lg md:text-xl italic tracking-widest uppercase shadow-2xl relative z-50">
                     🔥 立即领取888霸服礼包
                 </a>
-                <a href="javascript:void(0)"
-                    onclick="handleJump('gamelist'); if(typeof fbq!=='undefined'){fbq('track','ViewContent');}"
+                <a href="javascript:void(0)" onclick="handleJump('gamelist')"
                     class="btn-secondary w-full sm:w-auto text-center">
                     🎮 先挑选游戏
                 </a>
@@ -732,7 +744,7 @@
         </div>
     </div>
 
-    <a id="wa-strip-link" href="javascript:void(0)" target="_blank" class="wa-strip"
+    <a id="wa-strip-link" href="javascript:void(0)" class="wa-strip"
         onclick="if(typeof fbq!=='undefined'){fbq('track','Contact');}">
         <svg class="wa-strip-icon" viewBox="0 0 24 24" fill="#fff">
             <path
@@ -757,13 +769,17 @@
             <div class="flex-1 rolling-wrapper text-[11px] md:text-[12px] font-bold text-gray-200 italic">
                 <div class="rolling-list">
                     <div class="rolling-item">海外玩家 <span class="text-yellow-400 px-1.5 font-black">Jason_LA</span> 直充 $1
-                        获得 6480 元宝</div>
+                        获得 6480 元宝 🎉</div>
                     <div class="rolling-item">玩家 <span class="text-yellow-400 px-1.5 font-black">Emma_TO</span>
-                        领取了华人注册礼包 🎁</div>
-                    <div class="rolling-item">用户 <span class="text-yellow-400 px-1.5 font-black">Zhan***</span>
-                        下载盒子激活霸服特权</div>
+                        领取了华人注册礼包，已解锁满级VIP 🎁</div>
+                    <div class="rolling-item">用户 <span class="text-yellow-400 px-1.5 font-black">Zhan_KL</span>
+                        在《塔防召唤师》开局即得百万充值 💰</div>
                     <div class="rolling-item">新用户 <span class="text-yellow-400 px-1.5 font-black">Kevin_SYD</span> 首充
-                        $0.99 入手满级VIP</div>
+                        $0.99 入手满级VIP+顶级神将 ⚔️</div>
+                    <div class="rolling-item">玩家 <span class="text-yellow-400 px-1.5 font-black">Ming_MEL</span> 用
+                        PayPal 直充成功，0.05折超值体验 🔥</div>
+                    <div class="rolling-item">用户 <span class="text-yellow-400 px-1.5 font-black">Wei_VAN</span>
+                        《忍者时刻》领取5星限定忍者 🥷</div>
                 </div>
             </div>
         </div>
@@ -1029,6 +1045,8 @@
             marqueeTexts: [
                 { text: '⚡️ [海外加速] 全球节点直连优化：美/加/澳/欧/新 0延迟同步 ⚡️', highlight: true },
                 { text: '🎁 [注册礼包] 成功注册即领 $20 代金券，支持 PayPal / 信用卡直充 🎁', highlight: false },
+                { text: '🏆 [满V开局] 上线即送满级VIP · 顶级神装 · 无需氪金 · 低至0.05折 🏆', highlight: true },
+                { text: '🎮 [多品类] 仙侠 · 三国 · 动漫 · 传奇 · 武侠 百款游戏任你选 🎮', highlight: false },
             ],
 
             contactLinks: [
@@ -1041,37 +1059,62 @@
                 {
                     id: "13567",
                     name: "逍遥蜀山",
-                    desc: "【超值特惠】全场尊享0.05折，首充只要0.03元，在线免费送VIP15，【御剑飞行】剑鸣震碎千山寂，瞬息已过万重峰，完成任务免费送-青空飞剑",
+                    desc: "【历史最低价】全场永久0.05折，首充仅0.03元起！在线免费送VIP15，御剑飞行·青空飞剑全套，开局即送超级神装，满级秒起！",
                     tags: ["本周最火", "官方直营"],
-                    welfareTags: [{ text: "上线送V12", cls: "welfare-tag-gold" }, { text: "首充全免", cls: "welfare-tag-red" }],
+                    welfareTags: [{ text: "满级VIP", cls: "welfare-tag-gold" }, { text: "0.05折", cls: "welfare-tag-red" }],
                     video: "https://mp4.277sy.com/sp/13567.mp4",
                     cover: "game_cover_xinxiu.png",
                     isFeature: true
                 },
                 {
-                    id: "14241",
-                    name: "血饮天下（逆仙狂狗神器）",
-                    desc: "上线即送：登陆送自动回收、自动拾取、礼包码领取逆天令，逆天抽奖改命",
-                    tags: ["官方正版", "人气爆表"],
-                    welfareTags: [{ text: "无限爆红装", cls: "welfare-tag-red" }],
-                    icon: "https://p1.277sy.com/2026/01/22/6971e901e7360.gif"
-                },
-                {
-                    id: "14155",
-                    name: "忍者时刻（0.1折送5星忍者）",
-                    desc: "完成任务永久特权免费领,连续登录即送稀有忍者、金币、进阶石",
-                    tags: ["经典回归", "高爆霸服"],
-                    welfareTags: [{ text: "首充0.1折", cls: "welfare-tag-gold" }, { text: "送5星忍者", cls: "welfare-tag-red" }],
+                    id: "14354",
+                    name: "侍忍者",
+                    desc: "🥷 动漫风格ARPG！0.05折无限资源，连续登录送5星限定忍者+进阶石，永久特权免费领，每日送3280代金券不停歇！",
+                    tags: ["动漫热门", "高爆霸服"],
+                    welfareTags: [{ text: "0.05折", cls: "welfare-tag-gold" }, { text: "送5星忍者", cls: "welfare-tag-red" }],
                     icon: "https://p1.277sy.com/2026/01/16/6969ec00ef581.gif",
                     isHot: true
                 },
                 {
-                    id: "14249",
-                    name: "一剑江湖（3.5折免费版）",
-                    desc: "每天领代金券，0氪开启全特权,不卡关、真佛系的放置修仙手游",
-                    tags: ["唯美仙侠", "无尽资源"],
-                    welfareTags: [{ text: "0氪全特权", cls: "welfare-tag-gold" }],
-                    icon: "game_icon_yijian.png"
+                    id: "14573",
+                    name: "血饮天下",
+                    desc: "⚔️ 国风武侠MMORPG！上线即爆红装神器，自动拾取全挂机，逆天令随手抽，无限资源不氪金也能成神！",
+                    tags: ["武侠正版", "人气爆表"],
+                    welfareTags: [{ text: "满V神装", cls: "welfare-tag-gold" }, { text: "无限爆红装", cls: "welfare-tag-red" }],
+                    icon: "https://p1.277sy.com/2026/01/22/6971e901e7360.gif"
+                },
+                {
+                    id: "14475",
+                    name: "一念剑歌",
+                    desc: "🌸 佛系仙侠放置手游！每天免费领代金券，0氪开启全特权，不卡关真放置，海外党首选！神兵初现3.5折超值！",
+                    tags: ["唯美仙侠", "0氪霸服"],
+                    welfareTags: [{ text: "0氪全特权", cls: "welfare-tag-gold" }, { text: "每日代金券", cls: "welfare-tag-red" }],
+                    icon: "https://p1.277sy.com/2026/04/08/69d619de6f648.gif"
+                },
+                {
+                    id: "14226",
+                    name: "塔防召唤师",
+                    desc: "🏰 三国3D国风策略塔防！全场永久0.05折狂欢，首充仅0.03元起，原价648元充值现约3.28元！创角即领豪华礼包+GM助手特权，新手变大神！",
+                    tags: ["三国正版", "策略霸服"],
+                    welfareTags: [{ text: "0.05折", cls: "welfare-tag-red" }, { text: "GM特权", cls: "welfare-tag-gold" }],
+                    icon: "https://p1.277sy.com/2026/03/31/69cb40b7587d4.png",
+                    isHot: true
+                },
+                {
+                    id: "14556",
+                    name: "彩虹物语",
+                    desc: "🌈 二次元横版冒险ARPG！0.05折1.5W免费版，每日送15000平台代金券，上线送百万代金券，Q萌Boss换装等你解锁，海外华人二次元必玩！",
+                    tags: ["二次元热门", "每日代金券"],
+                    welfareTags: [{ text: "0.05折", cls: "welfare-tag-gold" }, { text: "每日15000券", cls: "welfare-tag-red" }],
+                    icon: "https://p1.277sy.com/2026/04/27/69ef251d7fbcd.gif"
+                },
+                {
+                    id: "14608",
+                    name: "英雄Q传",
+                    desc: "⚔️ 三国卡牌策略！0.1折免费买断版，每天登录送10万代金券+10买断币，开局即送黑金时装观音+30神将令，苍金武将全新登场！",
+                    tags: ["三国卡牌", "买断制"],
+                    welfareTags: [{ text: "0.1折买断", cls: "welfare-tag-gold" }, { text: "每日10万券", cls: "welfare-tag-red" }],
+                    icon: "https://p1.277sy.com/2026/05/15/6a06dce851653.gif"
                 }
             ]
         };
@@ -1117,12 +1160,12 @@
             if (type === 'hero_gift') {
                 target = CONFIG.heroGiftUrl;
                 // 触发 FB 像素高价值转化事件 (Lead)
-                if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+                if (typeof fbq !== 'undefined') { fbq('track', 'Lead', { content_name: 'hero_gift_888' }); }
             }
             // 👇 ★ 修改：底部悬浮安装按钮跳转新页面
             else if (type === 'download') {
                 target = CONFIG.boxDownloadUrl;
-                if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+                if (typeof fbq !== 'undefined') { fbq('track', 'InitiateCheckout', { content_name: 'box_download', currency: 'USD', value: 0.99 }); }
             }
             else if (type === 'gamelist') {
                 target = CONFIG.gameListUrl;
@@ -1274,7 +1317,7 @@
             document.getElementById('game-list').innerHTML = CONFIG.games.filter(g => !g.isFeature).map(game => `
                 <div onclick="handleJump('game', '${game.id}')" class="glass-card p-3 flex items-center gap-3 transition-all active:scale-95 cursor-pointer hover:border-yellow-400/30 hover:bg-white/[0.06]" style="transition: border-color 0.2s, background 0.2s, transform 0.1s;">
                     <div class="relative flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border border-white/10">
-                        <img src="${game.icon}" class="w-full h-full object-cover" alt="${game.name}" loading="lazy">
+                        <img src="${game.icon}" class="w-full h-full object-cover" alt="${game.name}" loading="lazy" onerror="this.onerror=null;this.style.display='none';this.parentElement.setAttribute('data-fallback','${game.name.charAt(0)}');this.parentElement.classList.add('icon-fallback')">
                         ${game.isHot ? '<span class="absolute top-0 left-0 bg-red-600 text-white text-[7px] px-1.5 py-0.5 font-black italic rounded-br-lg uppercase">Hot</span>' : ''}
                     </div>
                     <div class="flex-1 min-w-0 text-left">
@@ -1348,29 +1391,32 @@
                     spUsers.textContent = uBase.toLocaleString();
                 }, 30000);
             }
+
+            // ★ 页面停留 25 秒：标记高意向用户，帮助 FB 算法识别
+            setTimeout(function () {
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'EngagedVisit', { duration_sec: 25 });
+                }
+            }, 25000);
+
+            // ★ 滚动 50%：浏览了核心内容区，意向高于仅看首屏
+            (function () {
+                var scrollFired = false;
+                window.addEventListener('scroll', function onScroll() {
+                    if (scrollFired) return;
+                    var scrolled = window.scrollY + window.innerHeight;
+                    var total = document.documentElement.scrollHeight;
+                    if (total > 0 && scrolled / total >= 0.5) {
+                        scrollFired = true;
+                        if (typeof fbq !== 'undefined') {
+                            fbq('trackCustom', 'ScrollDepth50', { page: 'landing' });
+                        }
+                        window.removeEventListener('scroll', onScroll);
+                    }
+                }, { passive: true });
+            })();
         }
 
-        // 启动应用并设置加载容错
-        window.addEventListener('DOMContentLoaded', () => {
-            initApp();
-            // 容错：即使资源没加载完，3秒后也强制关闭加载动画
-            setTimeout(() => {
-                const loader = document.getElementById('global-loader');
-                if (loader) {
-                    loader.style.opacity = '0';
-                    setTimeout(() => loader.style.display = 'none', 500);
-                }
-            }, 3000);
-        });
-
-        // 页面资源全加载后移除动画
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('global-loader');
-            if (loader) {
-                loader.style.opacity = '0';
-                setTimeout(() => loader.style.display = 'none', 500);
-            }
-        });
     </script>
 </body>
 
