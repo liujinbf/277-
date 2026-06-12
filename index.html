@@ -7,15 +7,15 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <script>var FB_PIXEL_ID = '1467769168276771';</script>
 
-    <title>海外华人手游福利站 - 国服手游低至0.05折 · 上线满级VIP</title>
-    <meta name="description" content="海外华人专属福利盒子，支持PayPal/微信/支付宝直充，低至0.05折爽玩正版授权国服手游，上线即送满级VIP与顶级神装！仙侠/三国/动漫全品类！">
+    <title>海外华人手游福利站 - 国服手游低折扣礼包活动</title>
+    <meta name="description" content="海外华人专属手游福利入口，部分国服手游活动低至0.05折/0.1折，汇集仙侠、三国、动漫、传奇等热门游戏，支持中文客服、安装指引与常见支付方式咨询。具体福利以游戏内活动页为准。">
     <link rel="icon" href="https://p1.277sy.com/2026/01/16/6969ec00ef581.gif" type="image/gif">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.aijue.xyz/">
-    <meta property="og:title" content="🔥别再花冤枉钱！海外华人玩国服手游低至 0.05 折！">
-    <meta property="og:description" content="👉 注册即送 $20 无门槛代金券！支持 PayPal/信用卡直充。上线即满级VIP+神装，仙侠/三国/动漫全品类，点击立即霸服！">
-    <meta property="og:image" content="https://www.aijue.xyz/yl.jpg">
+    <meta property="og:title" content="海外华人手游福利站 · 国服手游低折扣礼包活动">
+    <meta property="og:description" content="部分游戏低至0.05折/0.1折，仙侠、三国、动漫、传奇等多品类可选，支持中文客服、安装指引与常见支付方式咨询。">
+    <meta property="og:image" content="https://www.aijue.xyz/hero-bg.png">
     <meta property="og:image:width" content="1021">
     <meta property="og:image:height" content="482">
     <meta property="og:site_name" content="海外手游福利站">
@@ -37,7 +37,7 @@
         fbq('track', 'PageView');
     </script>
 
-    <link rel="preload" as="image" href="yl.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="hero-bg.png" fetchpriority="high">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -631,6 +631,465 @@
             background: rgba(255, 215, 0, 0.07);
         }
 
+        .conversion-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .conversion-tile {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.12);
+            border-radius: 18px;
+            padding: 18px;
+            min-height: 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conversion-tile::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 100% 0%, rgba(255, 215, 0, 0.12), transparent 42%);
+            pointer-events: none;
+        }
+
+        .conversion-step {
+            font-family: 'Orbitron', monospace;
+            color: rgba(255, 215, 0, 0.9);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+        }
+
+        .conversion-tile h4 {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 900;
+            margin: 10px 0 8px;
+        }
+
+        .conversion-tile p {
+            color: rgba(255, 255, 255, 0.58);
+            font-size: 12px;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .policy-item {
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 18px;
+        }
+
+        .policy-item h4 {
+            color: #FFD700;
+            font-size: 14px;
+            font-weight: 900;
+            margin: 0 0 8px;
+        }
+
+        .policy-item p {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 12px;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .benefit-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 190px;
+            border-radius: 18px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .benefit-card::after {
+            content: '';
+            position: absolute;
+            inset: auto -20% -45% auto;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.16);
+            filter: blur(24px);
+            pointer-events: none;
+        }
+
+        .benefit-card-main {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.18), rgba(220, 38, 38, 0.13) 45%, rgba(255, 255, 255, 0.04));
+            border-color: rgba(255, 215, 0, 0.28);
+        }
+
+        .benefit-kicker {
+            display: inline-flex;
+            color: #FFD700;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .benefit-card h4 {
+            margin: 0 0 10px;
+            color: #fff;
+            font-size: 18px;
+            line-height: 1.25;
+            font-weight: 900;
+        }
+
+        .benefit-card-main h4 {
+            font-size: 26px;
+            color: #FFD700;
+            text-shadow: 0 0 18px rgba(255, 215, 0, 0.35);
+        }
+
+        .benefit-card p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .category-rail {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .category-card {
+            appearance: none;
+            display: block;
+            width: 100%;
+            min-height: 148px;
+            padding: 16px;
+            text-align: left;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 215, 0, 0.12);
+            background:
+                radial-gradient(circle at 100% 0%, rgba(255, 215, 0, 0.14), transparent 38%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 215, 0, 0.38);
+            background:
+                radial-gradient(circle at 100% 0%, rgba(255, 215, 0, 0.22), transparent 42%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035));
+        }
+
+        .category-mark {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(255, 215, 0, 0.12);
+            border: 1px solid rgba(255, 215, 0, 0.22);
+            color: #FFD700;
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 14px;
+        }
+
+        .category-card h4 {
+            margin: 0 0 8px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 900;
+            line-height: 1.25;
+        }
+
+        .category-card p {
+            margin: 0;
+            min-height: 38px;
+            color: rgba(255, 255, 255, 0.54);
+            font-size: 11px;
+            line-height: 1.65;
+        }
+
+        .category-tag {
+            display: inline-flex;
+            margin-top: 12px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            color: #FFD700;
+            background: rgba(255, 215, 0, 0.08);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 0.06em;
+        }
+
+        .category-card.is-active {
+            border-color: rgba(255, 215, 0, 0.54);
+            background:
+                radial-gradient(circle at 100% 0%, rgba(255, 215, 0, 0.26), transparent 42%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
+        }
+
+        .category-chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+            padding: 0 2px;
+        }
+
+        .category-chip {
+            appearance: none;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.64);
+            border-radius: 999px;
+            padding: 7px 11px;
+            font-size: 10px;
+            line-height: 1;
+            font-weight: 900;
+            cursor: pointer;
+            transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+        }
+
+        .category-chip:hover,
+        .category-chip.is-active {
+            border-color: rgba(255, 215, 0, 0.38);
+            color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .category-live-panel {
+            margin-top: 18px;
+            border: 1px solid rgba(255, 215, 0, 0.14);
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 255, 255, 0.035)),
+                rgba(5, 5, 8, 0.86);
+            overflow: hidden;
+        }
+
+        .category-live-panel[hidden] {
+            display: none;
+        }
+
+        .category-live-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .category-live-kicker {
+            display: inline-flex;
+            color: #FFD700;
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .category-live-title {
+            margin: 0;
+            color: #fff;
+            font-size: 18px;
+            line-height: 1.2;
+            font-weight: 900;
+        }
+
+        .category-live-subtitle {
+            margin: 7px 0 0;
+            color: rgba(255, 255, 255, 0.48);
+            font-size: 10px;
+            line-height: 1.6;
+        }
+
+        .category-live-more {
+            flex: 0 0 auto;
+            color: #0b0b0f;
+            background: #FFD700;
+            border-radius: 999px;
+            padding: 9px 13px;
+            font-size: 10px;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .category-live-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            padding: 14px;
+        }
+
+        .category-result-card {
+            display: grid;
+            grid-template-columns: 52px minmax(0, 1fr);
+            gap: 10px;
+            min-height: 86px;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.045);
+            cursor: pointer;
+            transition: border-color 0.18s ease, background 0.18s ease, transform 0.12s ease;
+        }
+
+        .category-result-card:hover {
+            border-color: rgba(255, 215, 0, 0.28);
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-1px);
+        }
+
+        .category-result-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .category-result-name {
+            margin: 0;
+            color: #fff;
+            font-size: 12px;
+            line-height: 1.25;
+            font-weight: 900;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .category-result-meta {
+            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.48);
+            font-size: 9px;
+            line-height: 1.45;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .category-result-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 7px;
+        }
+
+        .category-result-tag {
+            display: inline-flex;
+            max-width: 100%;
+            padding: 3px 6px;
+            border-radius: 999px;
+            background: rgba(255, 215, 0, 0.09);
+            color: #FFD700;
+            font-size: 8px;
+            line-height: 1;
+            font-weight: 900;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .category-live-state {
+            grid-column: 1 / -1;
+            padding: 18px;
+            border: 1px dashed rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            color: rgba(255, 255, 255, 0.56);
+            font-size: 11px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        @media (max-width: 720px) {
+            .conversion-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-rail {
+                display: flex;
+                gap: 10px;
+                overflow-x: auto;
+                padding-bottom: 6px;
+                scroll-snap-type: x mandatory;
+            }
+
+            .category-card {
+                min-width: 188px;
+                scroll-snap-align: start;
+            }
+
+            .category-chip-row {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 6px;
+                scrollbar-width: none;
+            }
+
+            .category-chip-row::-webkit-scrollbar {
+                display: none;
+            }
+
+            .category-chip {
+                flex: 0 0 auto;
+            }
+
+            .category-live-head {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .category-live-more {
+                width: 100%;
+                text-align: center;
+            }
+
+            .category-live-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .conversion-tile {
+                min-height: auto;
+            }
+        }
+
         /* 游戏图标加载失败降级 */
         .icon-fallback {
             background: linear-gradient(135deg, #1a1230, #2d1b69) !important;
@@ -669,7 +1128,7 @@
     <section
         class="relative min-h-[55vh] md:min-h-[85vh] flex flex-col items-center justify-center px-6 text-center pt-24 pb-16 overflow-hidden">
         <div class="hero-bg-container">
-            <img src="yl.jpg" class="hero-bg-img" alt="Hero BG" fetchpriority="high">
+            <img src="hero-bg.png" class="hero-bg-img" alt="国风手游场景背景" fetchpriority="high">
         </div>
         <div class="absolute inset-0 z-10" style="background:
             linear-gradient(to right,  rgba(5,5,7,1) 0%, rgba(5,5,7,0.85) 15%, transparent 30%, transparent 70%, rgba(5,5,7,0.85) 85%, rgba(5,5,7,1) 100%),
@@ -686,40 +1145,33 @@
             </div>
             <h1
                 class="text-5xl md:text-8xl 2xl:text-7xl font-black italic tracking-tighter mb-4 leading-none uppercase">
-                爽玩国服手游<br>
+                国服手游福利服<br>
                 <span
                     class="text-yellow-400 gold-glow underline decoration-red-600 decoration-[8px] md:decoration-[10px] underline-offset-8">低至0.05折</span>
             </h1>
 
             <div class="mb-8">
                 <div class="hero-subtitle-wrap">
-                    <p class="hero-subtitle text-white text-sm md:text-lg font-black tracking-widest">无需实名 &nbsp;/&nbsp;
-                        上线满级VIP &nbsp;/&nbsp; 华人专属</p>
+                    <p class="hero-subtitle text-white text-sm md:text-lg font-black tracking-widest">海外华人专属 &nbsp;/&nbsp;
+                        代金券礼包 &nbsp;/&nbsp; 中文客服</p>
                     <p class="hero-subtitle text-gray-300 text-[11px] md:text-base font-medium mt-1 opacity-90">
-                        别再花冤枉钱！支持 PayPal / 外币直充，<br class="md:hidden">$1 体验 $100 快感 · 开局即满V神装。</p>
+                        仙侠、三国、动漫、传奇等热门题材活动集中看。<br class="md:hidden">支持 PayPal / 微信 / 支付宝等方式咨询。</p>
                 </div>
             </div>
 
             <div class="mb-6 inline-flex items-center gap-2 text-[11px] font-black text-red-400 tracking-wide">
-                <span class="w-2 h-2 bg-red-500 rounded-full animate-ping inline-block"></span>
-                今日注册专属优惠，剩余时间
-                <span class="countdown-digits">
-                    <span class="cd-block" id="cd-h">00</span>
-                    <span class="cd-sep">:</span>
-                    <span class="cd-block" id="cd-m">00</span>
-                    <span class="cd-sep">:</span>
-                    <span class="cd-block" id="cd-s">00</span>
-                </span>
+                <span class="w-2 h-2 bg-red-500 rounded-full inline-block"></span>
+                部分游戏显示 0.05折 / 0.1折 活动 · 具体以游戏内页面为准
             </div>
 
             <div class="hero-cta-row">
                 <a id="hero-cta" href="javascript:void(0)" onclick="handleJump('hero_gift')"
                     class="btn-shine inline-block w-full sm:w-auto px-10 py-5 text-black font-black rounded-[2rem] text-lg md:text-xl italic tracking-widest uppercase shadow-2xl relative z-50">
-                    🔥 立即领取888霸服礼包
+                    立即看低折扣游戏
                 </a>
                 <a href="javascript:void(0)" onclick="handleJump('gamelist')"
                     class="btn-secondary w-full sm:w-auto text-center">
-                    🎮 先挑选游戏
+                    先看福利榜
                 </a>
             </div>
         </div>
@@ -727,20 +1179,20 @@
 
     <div class="social-proof-bar">
         <div class="sp-item">
-            <span class="sp-num" id="sp-users">—</span>
-            <span class="sp-label">累计服务海外玩家</span>
+            <span class="sp-num" id="sp-users">多款</span>
+            <span class="sp-label">福利游戏活动</span>
         </div>
         <div class="sp-item">
-            <span class="sp-num">98.6%</span>
-            <span class="sp-label">好评率</span>
+            <span class="sp-num">低折</span>
+            <span class="sp-label">部分游戏活动</span>
         </div>
         <div class="sp-item">
-            <span class="sp-num">$0.99</span>
-            <span class="sp-label">最低首充价格</span>
+            <span class="sp-num">礼包</span>
+            <span class="sp-label">礼包/代金券</span>
         </div>
         <div class="sp-item">
-            <span class="sp-num">3秒</span>
-            <span class="sp-label">充值到账速度</span>
+            <span class="sp-num">客服</span>
+            <span class="sp-label">中文协助</span>
         </div>
     </div>
 
@@ -750,7 +1202,7 @@
             <path
                 d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.945 1.595 5.707l-.993 3.624 3.76-.986zm11.367-7.351c-.167-.281-.618-.448-1.287-.783-.669-.335-3.956-1.953-4.569-2.176-.613-.223-1.059-.335-1.494.335-.436.67-.1.436-.613 1.104-.223.334-.446.334-.781.167-.335-.167-1.415-.521-2.693-1.661-.995-.888-1.666-1.984-1.861-2.32-.195-.334-.021-.515.147-.681.151-.149.335-.39.503-.585.166-.195.223-.335.335-.558.11-.223.056-.418-.028-.585s-.67-1.618-.919-2.22c-.242-.588-.487-.509-.669-.518-.173-.009-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
         </svg>
-        <span>💬 WhatsApp 直接咨询客服 · 备注「海外玩家」优先回复</span>
+        <span>WhatsApp 咨询客服 · 备注「海外玩家」获取低折扣游戏和礼包说明</span>
         <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" />
         </svg>
@@ -768,19 +1220,61 @@
             </div>
             <div class="flex-1 rolling-wrapper text-[11px] md:text-[12px] font-bold text-gray-200 italic">
                 <div class="rolling-list">
-                    <div class="rolling-item">海外玩家 <span class="text-yellow-400 px-1.5 font-black">Jason_LA</span> 直充 $1
-                        获得 6480 元宝 🎉</div>
-                    <div class="rolling-item">玩家 <span class="text-yellow-400 px-1.5 font-black">Emma_TO</span>
-                        领取了华人注册礼包，已解锁满级VIP 🎁</div>
-                    <div class="rolling-item">用户 <span class="text-yellow-400 px-1.5 font-black">Zhan_KL</span>
-                        在《塔防召唤师》开局即得百万充值 💰</div>
-                    <div class="rolling-item">新用户 <span class="text-yellow-400 px-1.5 font-black">Kevin_SYD</span> 首充
-                        $0.99 入手满级VIP+顶级神将 ⚔️</div>
-                    <div class="rolling-item">玩家 <span class="text-yellow-400 px-1.5 font-black">Ming_MEL</span> 用
-                        PayPal 直充成功，0.05折超值体验 🔥</div>
-                    <div class="rolling-item">用户 <span class="text-yellow-400 px-1.5 font-black">Wei_VAN</span>
-                        《忍者时刻》领取5星限定忍者 🥷</div>
+                    <div class="rolling-item">部分福利服可查看 <span class="text-yellow-400 px-1.5 font-black">0.05折 / 0.1折</span> 活动说明</div>
+                    <div class="rolling-item">热门题材游戏集中展示 <span class="text-yellow-400 px-1.5 font-black">礼包 / 代金券</span> 信息</div>
+                    <div class="rolling-item">仙侠、三国、动漫、传奇等品类可按 <span class="text-yellow-400 px-1.5 font-black">玩法偏好</span> 选择</div>
+                    <div class="rolling-item">海外玩家可咨询 <span class="text-yellow-400 px-1.5 font-black">PayPal / 微信 / 支付宝</span> 等支付方式</div>
+                    <div class="rolling-item">不确定选哪款？联系 <span class="text-yellow-400 px-1.5 font-black">中文客服</span> 按玩法偏好推荐</div>
+                    <div class="rolling-item">活动内容随游戏和区服调整，最终以 <span class="text-yellow-400 px-1.5 font-black">游戏内活动页</span> 为准</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-4 py-8 w-full max-w-4xl mx-auto">
+        <div class="flex items-center gap-3 mb-6">
+            <span class="w-1.5 h-7 bg-red-600 shadow-lg shadow-red-600/50 rounded-sm"></span>
+            <h3 class="text-lg md:text-2xl font-black italic tracking-tight text-white uppercase">福利榜 · Why Click</h3>
+        </div>
+        <div class="benefit-grid">
+            <div class="benefit-card benefit-card-main">
+                <span class="benefit-kicker">核心钩子</span>
+                <h4>部分国服手游低至0.05折</h4>
+                <p>不是普通下载站，而是把折扣服、礼包服、代金券活动集中展示给海外华人玩家。</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-kicker">新手更快起号</span>
+                <h4>礼包 / 代金券 / 活动区服</h4>
+                <p>先看福利再进游戏，少走弯路。不同游戏福利不同，进入详情页可核对。</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-kicker">海外玩家痛点</span>
+                <h4>支付、安装、注册有人带</h4>
+                <p>PayPal、微信、支付宝等方式可咨询，iOS 安装和账号问题也能找中文客服。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-4 py-8 w-full max-w-4xl mx-auto">
+        <div class="flex items-center gap-3 mb-6">
+            <span class="w-1.5 h-7 bg-yellow-400 shadow-lg shadow-yellow-400/50 rounded-sm"></span>
+            <h3 class="text-lg md:text-2xl font-black italic tracking-tight text-white uppercase">怎么拿福利 · Start Fast</h3>
+        </div>
+        <div class="conversion-grid">
+            <div class="conversion-tile">
+                <span class="conversion-step">01</span>
+                <h4>先看福利榜</h4>
+                <p>优先看低折扣、代金券、礼包服，再按仙侠、三国、动漫、传奇等题材挑游戏。</p>
+            </div>
+            <div class="conversion-tile">
+                <span class="conversion-step">02</span>
+                <h4>确认当前活动</h4>
+                <p>进入详情页核对当前折扣、礼包、区服和版本活动，避免只看广告文案误选。</p>
+            </div>
+            <div class="conversion-tile">
+                <span class="conversion-step">03</span>
+                <h4>客服带你起号</h4>
+                <p>注册、安装、支付方式不确定时，直接通过 WhatsApp、微信、Telegram 找中文客服。</p>
             </div>
         </div>
     </section>
@@ -788,7 +1282,7 @@
     <section class="px-4 py-10 w-full max-w-4xl mx-auto">
         <div class="flex items-center gap-3 mb-6">
             <span class="w-1.5 h-7 bg-yellow-400 shadow-lg shadow-yellow-400/50 rounded-sm"></span>
-            <h3 class="text-lg md:text-2xl font-black italic tracking-tight text-white uppercase">省钱对比 · Save Your Money
+            <h3 class="text-lg md:text-2xl font-black italic tracking-tight text-white uppercase">普通下载 vs 福利入口
             </h3>
         </div>
         <div class="flex rounded-[1.5rem] overflow-hidden"
@@ -797,15 +1291,15 @@
             <div class="flex-1 flex flex-col items-center justify-center px-4 md:px-10 py-8 text-center"
                 style="background:linear-gradient(135deg,#0d0d10 0%,#111116 100%);">
                 <div class="text-2xl md:text-4xl mb-2 opacity-40">😭</div>
-                <p class="text-[9px] md:text-[11px] text-gray-600 font-black uppercase tracking-[0.15em] mb-2">官方充值</p>
+                <p class="text-[9px] md:text-[11px] text-gray-600 font-black uppercase tracking-[0.15em] mb-2">普通入口</p>
                 <p class="font-black italic orbitron leading-none text-gray-700 line-through"
                     style="font-size:clamp(2rem,6vw,4.5rem); text-decoration-color:#dc2626; text-decoration-thickness:3px;">
-                    $100</p>
-                <p class="text-[9px] text-gray-700 font-bold mt-2 italic">= 6,480 元宝</p>
+                    乱找</p>
+                <p class="text-[9px] text-gray-700 font-bold mt-2 italic">不知道哪款福利更高</p>
                 <div class="mt-3 space-y-1 text-left w-full max-w-[160px]">
-                    <p class="text-[9px] md:text-[11px] text-gray-700 italic">❌ 苦苦打怪无礼包</p>
-                    <p class="text-[9px] md:text-[11px] text-gray-700 italic">❌ 须繁琐实名认证</p>
-                    <p class="text-[9px] md:text-[11px] text-gray-700 italic">❌ 无专属客服支持</p>
+                    <p class="text-[9px] md:text-[11px] text-gray-700 italic">找不到低折扣区服</p>
+                    <p class="text-[9px] md:text-[11px] text-gray-700 italic">礼包和代金券容易错过</p>
+                    <p class="text-[9px] md:text-[11px] text-gray-700 italic">海外安装支付自己摸索</p>
                 </div>
             </div>
 
@@ -814,8 +1308,8 @@
                     style="background:linear-gradient(to bottom,transparent,rgba(255,215,0,0.8),transparent);"></div>
                 <div class="w-12 h-12 md:w-16 md:h-16 rounded-full flex flex-col items-center justify-center border-2 border-yellow-400/60 z-10"
                     style="background:radial-gradient(circle,#c8910a,#FFD700); box-shadow:0 0 24px rgba(255,215,0,0.65),0 0 48px rgba(255,215,0,0.25); animation:spin 10s linear infinite;">
-                    <span class="text-black font-black orbitron leading-tight" style="font-size:0.65rem;">0.1</span>
-                    <span class="text-black font-black leading-tight" style="font-size:0.55rem;">折</span>
+                    <span class="text-black font-black orbitron leading-tight" style="font-size:0.65rem;">0.05</span>
+                    <span class="text-black font-black leading-tight" style="font-size:0.55rem;">低至</span>
                 </div>
             </div>
 
@@ -826,30 +1320,26 @@
                 </div>
                 <div
                     class="absolute top-0 right-0 bg-red-600 text-white text-[8px] md:text-[11px] font-black px-3 py-1 rounded-bl-xl italic shadow-lg uppercase">
-                    🔥 华人首选</div>
+                    活动入口</div>
                 <div class="relative z-10 text-center">
                     <p class="text-[9px] md:text-[11px] text-yellow-500 font-black uppercase tracking-[0.15em] mb-2">
-                        0.1折专区</p>
+                        277福利入口</p>
                     <p class="font-black italic orbitron leading-none gold-glow"
                         style="font-size:clamp(2.5rem,8vw,5.5rem); color:#FFD700; filter:drop-shadow(0 0 25px rgba(255,215,0,0.55));">
-                        $1<span style="font-size:55%">.0</span></p>
-                    <p class="text-[9px] text-yellow-400 font-black mt-2 italic">= 6,480 元宝</p>
+                        折扣<span style="font-size:55%">服</span></p>
+                    <p class="text-[9px] text-yellow-400 font-black mt-2 italic">集中查看0.05折/0.1折与礼包活动</p>
                     <div class="mt-3 space-y-1 text-left w-full max-w-[160px] mx-auto">
-                        <p class="text-[9px] md:text-[11px] text-yellow-300 italic">✅ 上线即送满级VIP</p>
-                        <p class="text-[9px] md:text-[11px] text-yellow-300 italic">✅ PayPal 外币秒充</p>
-                        <p class="text-[9px] md:text-[11px] text-yellow-300 italic">✅ 专属华人客服</p>
+                        <p class="text-[9px] md:text-[11px] text-yellow-300 italic">低折扣游戏优先展示</p>
+                        <p class="text-[9px] md:text-[11px] text-yellow-300 italic">礼包/代金券活动集中看</p>
+                        <p class="text-[9px] md:text-[11px] text-yellow-300 italic">中文客服协助安装支付</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="mt-4 text-center">
-            <span class="inline-flex items-center gap-2 text-[11px] md:text-sm font-black italic">
-                <span class="text-green-400">▼</span>
-                <span class="text-gray-400">每次充值节省</span>
-                <span class="orbitron text-lg md:text-2xl font-black text-white gold-glow">$99</span>
-                <span class="text-gray-400">省下的钱可以再充</span>
-                <span class="orbitron text-lg md:text-2xl font-black text-yellow-400">99次</span>
-                <span class="text-gray-500">！</span>
+            <span class="inline-flex items-center gap-2 text-[11px] md:text-sm font-black italic flex-wrap justify-center">
+                <span class="text-green-400">提示</span>
+                <span class="text-gray-400">折扣和礼包随游戏、区服、时间变化，最终以游戏内活动页为准。</span>
             </span>
         </div>
     </section>
@@ -858,6 +1348,57 @@
         <h3 class="text-2xl font-black italic tracking-tighter mb-8 flex items-center gap-3"><span
                 class="w-1.5 h-7 bg-red-600 shadow-lg shadow-red-600/50"></span> 本周主打 · ACE CHOICE</h3>
         <div id="feature-card-container"></div>
+    </section>
+
+    <section class="px-4 pb-8 w-full max-w-4xl mx-auto">
+        <div class="flex items-center justify-between gap-3 mb-5">
+            <h3 class="text-[11px] font-black text-gray-500 italic tracking-[0.45em] uppercase px-2">Category Entry /
+                按品类找福利</h3>
+            <span class="hidden md:inline text-[10px] text-gray-600 font-bold italic">点击后实时展示277对应分类</span>
+        </div>
+        <div class="category-rail">
+            <a href="https://pc.277sy.com/?tgid=cc0001100&appid=0#/classify" class="category-card"
+                data-category-id="31" data-category-name="仙侠" data-event-category="仙侠福利">
+                <span class="category-mark">仙</span>
+                <h4>仙侠福利服</h4>
+                <p>御剑、修仙、放置养成，适合喜欢长期成长的玩家。</p>
+                <span class="category-tag">低折 / 礼包</span>
+            </a>
+            <a href="https://pc.277sy.com/?tgid=cc0001100&appid=0#/classify" class="category-card"
+                data-category-id="39" data-category-name="三国" data-event-category="三国策略">
+                <span class="category-mark">三</span>
+                <h4>三国策略</h4>
+                <p>武将收集、阵容搭配、塔防闯关，先看活动再起号。</p>
+                <span class="category-tag">卡牌 / 塔防</span>
+            </a>
+            <a href="https://pc.277sy.com/?tgid=cc0001100&appid=0#/classify" class="category-card"
+                data-category-id="36" data-category-name="动漫" data-event-category="动漫卡牌">
+                <span class="category-mark">动</span>
+                <h4>动漫卡牌</h4>
+                <p>角色收集、二次元冒险、轻松养成，福利活动集中看。</p>
+                <span class="category-tag">角色 / 冒险</span>
+            </a>
+            <a href="https://pc.277sy.com/?tgid=cc0001100&appid=0#/classify" class="category-card"
+                data-category-id="33" data-category-name="传奇" data-event-category="传奇打宝">
+                <span class="category-mark">传</span>
+                <h4>传奇打宝</h4>
+                <p>打宝、装备成长、挂机刷图，适合追求爽感的玩家。</p>
+                <span class="category-tag">打宝 / 装备</span>
+            </a>
+        </div>
+        <div id="category-chip-row" class="category-chip-row" aria-label="277游戏完整分类"></div>
+        <div id="category-live-panel" class="category-live-panel" hidden>
+            <div class="category-live-head">
+                <div>
+                    <span class="category-live-kicker">277 Live Category</span>
+                    <h4 id="category-live-title" class="category-live-title">按品类找福利</h4>
+                    <p id="category-live-subtitle" class="category-live-subtitle">实时读取277游戏库分类，具体活动以游戏详情页为准。</p>
+                </div>
+                <a id="category-live-more" class="category-live-more"
+                    href="https://pc.277sy.com/?tgid=cc0001100&appid=0#/classify" target="_blank" rel="noopener">进入277游戏库</a>
+            </div>
+            <div id="category-live-list" class="category-live-grid"></div>
+        </div>
     </section>
 
     <section class="px-4 py-10 w-full max-w-4xl mx-auto">
@@ -894,7 +1435,7 @@
         </div>
 
         <div class="mt-10 max-w-sm mx-auto">
-            <p class="text-[10px] text-gray-400 mb-4">*此为未上架海外App Store的福利服专属标准流程，安全稳定请放心操作</p>
+            <p class="text-[10px] text-gray-400 mb-4">*请仅通过本页面官方入口安装，并根据系统提示完成设备信任设置。</p>
 
             <div
                 class="mt-8 max-w-[280px] mx-auto text-left bg-[#000000] rounded-[18px] border border-white/10 overflow-hidden shadow-2xl relative">
@@ -930,26 +1471,51 @@
         </div>
     </section>
 
+    <section id="service-policy" class="px-4 py-12 w-full max-w-4xl mx-auto">
+        <div class="flex items-center gap-3 mb-6">
+            <span class="w-1.5 h-7 bg-yellow-400 shadow-lg shadow-yellow-400/50 rounded-sm"></span>
+            <h3 class="text-lg md:text-2xl font-black italic tracking-tight text-white uppercase">活动与服务说明</h3>
+        </div>
+        <div class="policy-grid">
+            <div class="policy-item">
+                <h4>活动说明</h4>
+                <p>页面展示的礼包、折扣、道具和区服活动可能随游戏运营调整，最终以游戏内活动页、注册页或客服确认信息为准。</p>
+            </div>
+            <div class="policy-item">
+                <h4>支付与退款</h4>
+                <p>支付方式、到账时间和退款规则以对应游戏或充值页面说明为准。如遇支付异常，请保留订单信息并联系客服核查。</p>
+            </div>
+            <div class="policy-item">
+                <h4>隐私与联系</h4>
+                <p>联系客户服务时，请勿发送密码、验证码或不必要的个人敏感信息。客服仅用于协助注册、安装、活动咨询和订单核查。</p>
+            </div>
+            <div class="policy-item">
+                <h4>年龄提示</h4>
+                <p>请根据所在地法律法规和游戏分级要求合理安排游戏时间。未成年人应在监护人指导下使用相关服务。</p>
+            </div>
+        </div>
+    </section>
+
     <div class="fixed bottom-0 left-0 w-full p-4 md:p-6 z-[120] bg-gradient-to-t from-black via-black/95 to-transparent"
         style="padding-bottom: max(1rem, env(safe-area-inset-bottom));">
         <div class="max-w-2xl mx-auto relative text-center">
             <div id="cta-badge"
                 class="absolute -top-12 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] font-black px-6 py-2 rounded-full animate-bounce shadow-2xl border border-red-500 uppercase tracking-tighter"
                 style="transition: opacity 0.3s ease, transform 0.3s ease;">
-                🎁 海外华人专属 888 霸服礼包
+                低至0.05折福利游戏
             </div>
             <a id="float-footer-cta" href="javascript:void(0)" onclick="handleJump('download')"
                 class="flex items-center justify-between bg-yellow-400 p-2.5 pl-6 md:p-3.5 md:pl-10 rounded-[3rem] shadow-[0_30px_70px_rgba(251,191,36,0.5)] active:scale-95 group">
                 <div class="flex flex-col text-left overflow-hidden">
                     <span
-                        class="text-black font-black text-[14px] md:text-lg italic uppercase truncate tracking-tight">开启霸服特权人生</span>
+                        class="text-black font-black text-[14px] md:text-lg italic uppercase truncate tracking-tight">查看低折扣和礼包入口</span>
                     <span
                         class="text-black/40 text-[8px] md:text-[9px] font-black uppercase tracking-widest orbitron mt-0.5 xs-hide">Official
                         Direct Link</span>
                 </div>
                 <div
                     class="bg-black text-yellow-400 h-10 md:h-14 px-8 md:px-14 flex items-center justify-center rounded-[2.2rem] font-black text-xs md:text-sm italic shadow-2xl tracking-widest uppercase group-hover:scale-105 transition-transform">
-                    一键安装盒子
+                    立即看福利
                 </div>
             </a>
         </div>
@@ -961,7 +1527,7 @@
                 <p class="text-[9px] md:text-[10px] text-gray-500 uppercase font-black mb-2 tracking-[0.4em] orbitron">
                     Global Player Support</p>
                 <h2 class="text-xl md:text-2xl font-black text-white italic uppercase tracking-tighter">联系客服 · 领取福利</h2>
-                <p class="text-[11px] md:text-[12px] text-yellow-400/60 mt-2 font-bold italic">备注"海外玩家"优先通过</p>
+                <p class="text-[11px] md:text-[12px] text-yellow-400/60 mt-2 font-bold italic">备注"海外玩家"获取活动与安装协助</p>
             </div>
 
             <div class="flex items-center justify-center gap-3 mb-6 flex-wrap">
@@ -978,7 +1544,7 @@
                             d="M7.076 21.337H4.272a.641.641 0 0 1-.633-.74L6.24 1.893a.75.75 0 0 1 .74-.627h5.993c2.573 0 4.491.747 5.7 2.219.561.678.92 1.407 1.072 2.168.159.796.137 1.732-.067 2.783-.688 3.62-3.044 5.463-7.003 5.463H9.91a.75.75 0 0 0-.74.635l-.79 5.003a.641.641 0 0 1-.633.54h-1.67v.26zM20.25 8.354a5.7 5.7 0 0 1-.056.445c-.838 4.29-3.703 6.288-8.433 6.288h-2.254a.75.75 0 0 0-.74.635l-1.003 6.354a.338.338 0 0 0 .333.388h2.33a.641.641 0 0 0 .633-.546l.655-4.14a.75.75 0 0 1 .74-.636h1.51c3.78 0 6.223-1.883 7.01-5.44.355-1.632.187-2.945-.725-3.948z" />
                     </svg><span>PayPal</span></div>
             </div>
-            <p class="text-[10px] text-gray-500 italic mb-6">✅ 华人自营 · 无需找老外代充 · 秒到账</p>
+            <p class="text-[10px] text-gray-500 italic mb-6">中文客服 · 常见支付方式咨询 · 具体活动以游戏内显示为准</p>
 
             <div id="contact-links" class="grid grid-cols-2 gap-3 md:gap-4">
             </div>
@@ -1026,7 +1592,38 @@
             get heroGiftUrl() { return `https://reg.277sy.com/?tgid=${this.tgid}`; },  // 首屏强转化：保持去注册页
             get boxDownloadUrl() { return `https://www-html.277sy.com/page/box1/?tgid=${this.tgid}`; }, // 底部强转化：去新版安装页
 
-            get gameListUrl() { return `https://mob.277sy.com/?tgid=${this.tgid}`; },  // 弱转化
+            get classifyUrl() { return `https://pc.277sy.com/?tgid=${this.tgid}&appid=0#/classify`; }, // 游戏库/分类页
+            get gameListUrl() { return this.classifyUrl; },  // 弱转化：先进入游戏库，再由玩家按类型筛选
+            gameApiBaseUrl: "https://mobapp-nsapi.277sy.com/index.php/index/gamelist",
+            categoryEntries: [
+                { id: "31", name: "仙侠", eventName: "仙侠福利" },
+                { id: "39", name: "三国", eventName: "三国策略" },
+                { id: "36", name: "动漫", eventName: "动漫卡牌" },
+                { id: "33", name: "传奇", eventName: "传奇打宝" }
+            ],
+            genreCatalog: [
+                { id: "0", name: "热门" },
+                { id: "-1", name: "新游" },
+                { id: "-2", name: "满V" },
+                { id: "61", name: "割草" },
+                { id: "31", name: "仙侠" },
+                { id: "52", name: "二次元" },
+                { id: "36", name: "动漫" },
+                { id: "39", name: "三国" },
+                { id: "34", name: "卡牌" },
+                { id: "33", name: "传奇" },
+                { id: "35", name: "魔幻" },
+                { id: "42", name: "武侠" },
+                { id: "53", name: "经营" },
+                { id: "51", name: "西游" },
+                { id: "48", name: "养成" },
+                { id: "32", name: "冒险" },
+                { id: "38", name: "策略" },
+                { id: "40", name: "回合" },
+                { id: "41", name: "角色" },
+                { id: "45", name: "挂机" },
+                { id: "44", name: "Q版" }
+            ],
 
             // FB 像素 ID（引用 head 顶部的全局变量，无需重复填写）
             fbPixelId: FB_PIXEL_ID,
@@ -1037,83 +1634,79 @@
             // 游戏详情页域名
             pcBaseUrl: "https://pc.277sy.com",
 
-            // 社会证明初始基数（只改这里，HTML 和 JS 均从此读取）
-            initOnlineCount: 2419,
-            initUserCount: 32841,
-
             // 顶部跑马灯文案
             marqueeTexts: [
-                { text: '⚡️ [海外加速] 全球节点直连优化：美/加/澳/欧/新 0延迟同步 ⚡️', highlight: true },
-                { text: '🎁 [注册礼包] 成功注册即领 $20 代金券，支持 PayPal / 信用卡直充 🎁', highlight: false },
-                { text: '🏆 [满V开局] 上线即送满级VIP · 顶级神装 · 无需氪金 · 低至0.05折 🏆', highlight: true },
-                { text: '🎮 [多品类] 仙侠 · 三国 · 动漫 · 传奇 · 武侠 百款游戏任你选 🎮', highlight: false },
+                { text: '[低折扣] 部分国服手游显示 0.05折 / 0.1折 活动', highlight: true },
+                { text: '[代金券] 热门游戏礼包、折扣区服和代金券活动集中看', highlight: false },
+                { text: '[海外玩家] 支持中文客服咨询注册、安装和支付问题', highlight: true },
+                { text: '[提示] 具体礼包与折扣以游戏内活动页为准', highlight: false },
             ],
 
             contactLinks: [
                 { type: 'telegram', label: 'TG 客服', value: '@gaeeba', link: 'https://t.me/gaeeba' },
                 { type: 'whatsapp', label: 'WhatsApp', value: 'WhatsApp', link: 'https://wa.me/qr/HLCOPEOYA5RID1' },
                 { type: 'qq', label: 'QQ 交流', value: '371881432', link: 'https://qm.qq.com/q/eZCZJXAXAI' },
-                { type: 'wechat', label: '微信客服', value: 'cx28358', link: 'https://u.wechat.com/MD4f1loeGka5ilYMhqgnreg', wechatId: 'cx28358', wechatQr: 'wx_qr.png' }
+                { type: 'wechat', label: '微信客服', value: 'cx28358', link: 'https://u.wechat.com/MD4f1loeGka5ilYMhqgnreg', wechatId: 'cx28358' }
             ],
             games: [
                 {
                     id: "13567",
                     name: "逍遥蜀山",
-                    desc: "【历史最低价】全场永久0.05折，首充仅0.03元起！在线免费送VIP15，御剑飞行·青空飞剑全套，开局即送超级神装，满级秒起！",
-                    tags: ["本周最火", "官方直营"],
-                    welfareTags: [{ text: "满级VIP", cls: "welfare-tag-gold" }, { text: "0.05折", cls: "welfare-tag-red" }],
+                    desc: "仙侠福利服主推款，适合想快速起号、看重礼包和折扣活动的玩家。进入详情页查看当前区服福利。",
+                    tags: ["本周主推", "仙侠福利"],
+                    welfareTags: [{ text: "低折扣活动", cls: "welfare-tag-gold" }, { text: "礼包服", cls: "welfare-tag-red" }],
                     video: "https://mp4.277sy.com/sp/13567.mp4",
-                    cover: "game_cover_xinxiu.png",
+                    cover: "hero-bg.png",
                     isFeature: true
                 },
                 {
                     id: "14354",
                     name: "侍忍者",
-                    desc: "🥷 动漫风格ARPG！0.05折无限资源，连续登录送5星限定忍者+进阶石，永久特权免费领，每日送3280代金券不停歇！",
-                    tags: ["动漫热门", "高爆霸服"],
-                    welfareTags: [{ text: "0.05折", cls: "welfare-tag-gold" }, { text: "送5星忍者", cls: "welfare-tag-red" }],
+                    desc: "动漫忍者题材，适合喜欢角色收集和养成的玩家。当前活动页可查看折扣、礼包和登录福利。",
+                    tags: ["动漫热门", "角色收集"],
+                    welfareTags: [{ text: "0.05折活动", cls: "welfare-tag-gold" }, { text: "角色礼包", cls: "welfare-tag-red" }],
                     icon: "https://p1.277sy.com/2026/01/16/6969ec00ef581.gif",
                     isHot: true
                 },
                 {
                     id: "14573",
                     name: "血饮天下",
-                    desc: "⚔️ 国风武侠MMORPG！上线即爆红装神器，自动拾取全挂机，逆天令随手抽，无限资源不氪金也能成神！",
-                    tags: ["武侠正版", "人气爆表"],
-                    welfareTags: [{ text: "满V神装", cls: "welfare-tag-gold" }, { text: "无限爆红装", cls: "welfare-tag-red" }],
+                    desc: "国风武侠 MMORPG，适合喜欢挂机刷装、长期养成和多人玩法的玩家。福利活动以详情页为准。",
+                    tags: ["武侠题材", "长期养成"],
+                    welfareTags: [{ text: "装备成长", cls: "welfare-tag-gold" }, { text: "福利活动", cls: "welfare-tag-red" }],
                     icon: "https://p1.277sy.com/2026/01/22/6971e901e7360.gif"
                 },
                 {
                     id: "14475",
                     name: "一念剑歌",
-                    desc: "🌸 佛系仙侠放置手游！每天免费领代金券，0氪开启全特权，不卡关真放置，海外党首选！神兵初现3.5折超值！",
-                    tags: ["唯美仙侠", "0氪霸服"],
-                    welfareTags: [{ text: "0氪全特权", cls: "welfare-tag-gold" }, { text: "每日代金券", cls: "welfare-tag-red" }],
+                    desc: "轻松放置仙侠，适合碎片时间体验。可查看签到、成长、新手礼包和当前折扣说明。",
+                    tags: ["唯美仙侠", "放置轻松"],
+                    welfareTags: [{ text: "新手礼包", cls: "welfare-tag-gold" }, { text: "折扣说明", cls: "welfare-tag-red" }],
                     icon: "https://p1.277sy.com/2026/04/08/69d619de6f648.gif"
                 },
                 {
                     id: "14226",
                     name: "塔防召唤师",
-                    desc: "🏰 三国3D国风策略塔防！全场永久0.05折狂欢，首充仅0.03元起，原价648元充值现约3.28元！创角即领豪华礼包+GM助手特权，新手变大神！",
-                    tags: ["三国正版", "策略霸服"],
-                    welfareTags: [{ text: "0.05折", cls: "welfare-tag-red" }, { text: "GM特权", cls: "welfare-tag-gold" }],
+                    desc: "三国策略塔防，游戏页显示0.05折活动与礼包信息，适合喜欢阵容搭配和武将养成的玩家。",
+                    tags: ["三国策略", "塔防闯关"],
+                    welfareTags: [{ text: "0.05折活动", cls: "welfare-tag-red" }, { text: "代金券福利", cls: "welfare-tag-gold" }],
                     icon: "https://p1.277sy.com/2026/03/31/69cb40b7587d4.png",
                     isHot: true
                 },
                 {
                     id: "14556",
                     name: "彩虹物语",
-                    desc: "🌈 二次元横版冒险ARPG！0.05折1.5W免费版，每日送15000平台代金券，上线送百万代金券，Q萌Boss换装等你解锁，海外华人二次元必玩！",
-                    tags: ["二次元热门", "每日代金券"],
-                    welfareTags: [{ text: "0.05折", cls: "welfare-tag-gold" }, { text: "每日15000券", cls: "welfare-tag-red" }],
+                    desc: "二次元横版冒险 ARPG，游戏页显示0.05折和1.5W免费版活动，适合喜欢轻快画风的玩家。",
+                    tags: ["二次元热门", "横版冒险"],
+                    welfareTags: [{ text: "0.05折活动", cls: "welfare-tag-gold" }, { text: "福利版", cls: "welfare-tag-red" }],
                     icon: "https://p1.277sy.com/2026/04/27/69ef251d7fbcd.gif"
                 },
                 {
                     id: "14608",
                     name: "英雄Q传",
-                    desc: "⚔️ 三国卡牌策略！0.1折免费买断版，每天登录送10万代金券+10买断币，开局即送黑金时装观音+30神将令，苍金武将全新登场！",
-                    tags: ["三国卡牌", "买断制"],
-                    welfareTags: [{ text: "0.1折买断", cls: "welfare-tag-gold" }, { text: "每日10万券", cls: "welfare-tag-red" }],
+                    desc: "三国卡牌策略玩法，游戏页显示0.1折活动，主打武将收集、阵容搭配和日常养成。",
+                    tags: ["三国卡牌", "阵容搭配"],
+                    welfareTags: [{ text: "0.1折活动", cls: "welfare-tag-gold" }, { text: "卡牌策略", cls: "welfare-tag-red" }],
                     icon: "https://p1.277sy.com/2026/05/15/6a06dce851653.gif"
                 }
             ]
@@ -1159,13 +1752,13 @@
             // 👇 ★ 新增：专门处理首屏“888礼包”按钮跳转
             if (type === 'hero_gift') {
                 target = CONFIG.heroGiftUrl;
-                // 触发 FB 像素高价值转化事件 (Lead)
-                if (typeof fbq !== 'undefined') { fbq('track', 'Lead', { content_name: 'hero_gift_888' }); }
+                // 触发 FB 像素转化事件：点击注册/礼包入口
+                if (typeof fbq !== 'undefined') { fbq('track', 'Lead', { content_name: 'gift_entry_click' }); }
             }
             // 👇 ★ 修改：底部悬浮安装按钮跳转新页面
             else if (type === 'download') {
                 target = CONFIG.boxDownloadUrl;
-                if (typeof fbq !== 'undefined') { fbq('track', 'InitiateCheckout', { content_name: 'box_download', currency: 'USD', value: 0.99 }); }
+                if (typeof fbq !== 'undefined') { fbq('trackCustom', 'DownloadEntryClick', { content_name: 'box_download' }); }
             }
             else if (type === 'gamelist') {
                 target = CONFIG.gameListUrl;
@@ -1187,6 +1780,180 @@
                 }
             }
         }
+
+        const CATEGORY_CACHE = {};
+
+        function escapeHTML(value) {
+            return String(value ?? '').replace(/[&<>"']/g, ch => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[ch]));
+        }
+
+        function getCategoryApiUrl(categoryId) {
+            const params = new URLSearchParams({
+                uid: '',
+                token: '',
+                tgid: CONFIG.tgid,
+                appid: '1',
+                game_type: '1',
+                client_type: '3',
+                genre_order_id: categoryId,
+                page: '1',
+                json: '1'
+            });
+            return `${CONFIG.gameApiBaseUrl}?${params.toString()}`;
+        }
+
+        function updateGenreCatalogFromData(data, activeId) {
+            if (!data) return;
+            const add = data.genre_arr_add ? Object.entries(data.genre_arr_add).map(([id, name]) => ({ id: String(id), name: String(name) })) : [];
+            const arr = Array.isArray(data.genre_arr) ? data.genre_arr.map(item => ({ id: String(item.genre_id), name: String(item.genre_name) })) : [];
+            const next = [...add, ...arr].filter(item => item.id && item.name);
+            if (next.length) {
+                CONFIG.genreCatalog = next;
+                renderCategoryChips(activeId);
+            }
+        }
+
+        function setActiveCategory(categoryId) {
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.classList.toggle('is-active', card.dataset.categoryId === String(categoryId));
+            });
+            document.querySelectorAll('.category-chip').forEach(chip => {
+                chip.classList.toggle('is-active', chip.dataset.categoryId === String(categoryId));
+            });
+        }
+
+        function renderCategoryChips(activeId = '31') {
+            const row = document.getElementById('category-chip-row');
+            if (!row || !CONFIG.genreCatalog.length) return;
+            row.innerHTML = CONFIG.genreCatalog.map(item => `
+                <button type="button" class="category-chip${String(item.id) === String(activeId) ? ' is-active' : ''}"
+                    data-category-id="${escapeHTML(item.id)}" data-category-name="${escapeHTML(item.name)}">
+                    ${escapeHTML(item.name)}
+                </button>
+            `).join('');
+            row.querySelectorAll('.category-chip').forEach(chip => {
+                chip.addEventListener('click', () => {
+                    loadCategoryGames(chip.dataset.categoryId, chip.dataset.categoryName, { scroll: true });
+                });
+            });
+        }
+
+        function renderCategoryState(message) {
+            const list = document.getElementById('category-live-list');
+            if (!list) return;
+            list.innerHTML = `<div class="category-live-state">${message}</div>`;
+        }
+
+        function getDiscountLabel(game) {
+            const flashDiscount = Number(game.flash_discount);
+            const discount = Number(game.discount);
+            if (game.is_flash && flashDiscount && flashDiscount !== 10) return `${escapeHTML(game.flash_discount)}折`;
+            if (discount && discount !== 10) return `${escapeHTML(game.discount)}折`;
+            return '';
+        }
+
+        function getGameLabels(game) {
+            const labels = [];
+            const discount = getDiscountLabel(game);
+            if (discount) labels.push(discount);
+            if (game.has_648 === 1 || game.has_648 === '1') labels.push('648券');
+            if (game.free_desc && game.free_desc.desc) labels.push('代金券');
+            if (Array.isArray(game.game_labels)) {
+                game.game_labels.slice(0, 2).forEach(label => {
+                    if (label && label.label_name) labels.push(label.label_name);
+                });
+            }
+            return labels.slice(0, 3);
+        }
+
+        function renderCategoryGames(categoryName, games) {
+            const list = document.getElementById('category-live-list');
+            if (!list) return;
+            if (!games.length) {
+                renderCategoryState('这个分类暂时没有可展示游戏，可进入277游戏库查看最新上架。');
+                return;
+            }
+            list.innerHTML = games.slice(0, 6).map(game => {
+                const gameId = String(game.gameid || '').replace(/[^\d]/g, '');
+                const name = game.gamename_a || game.gamename || '福利游戏';
+                const icon = game.gameicon || game.gameicon2 || 'hero-bg.png';
+                const meta = [game.gamename_b, game.genre_str, game.game_summary].filter(Boolean).join(' · ');
+                const labels = getGameLabels(game);
+                return `
+                    <article class="category-result-card" onclick="handleJump('game', '${gameId}')">
+                        <img class="category-result-icon" src="${escapeHTML(icon)}" alt="${escapeHTML(name)}" loading="lazy"
+                            onerror="this.onerror=null;this.src='hero-bg.png'">
+                        <div class="min-w-0">
+                            <h5 class="category-result-name">${escapeHTML(name)}</h5>
+                            <p class="category-result-meta">${escapeHTML(meta || `${categoryName}分类游戏`)}</p>
+                            <div class="category-result-tags">
+                                ${labels.map(label => `<span class="category-result-tag">${escapeHTML(label)}</span>`).join('')}
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        async function loadCategoryGames(categoryId, categoryName, options = {}) {
+            const panel = document.getElementById('category-live-panel');
+            const title = document.getElementById('category-live-title');
+            const subtitle = document.getElementById('category-live-subtitle');
+            if (!panel || !categoryId) return;
+
+            const name = categoryName || (CONFIG.genreCatalog.find(item => item.id === String(categoryId)) || {}).name || '热门';
+            panel.hidden = false;
+            if (title) title.textContent = `${name}分类福利游戏`;
+            if (subtitle) subtitle.textContent = `来自277游戏库实时分类，优先展示精彩福利游戏，具体折扣和礼包以详情页为准。`;
+            setActiveCategory(categoryId);
+
+            if (options.scroll !== false) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            if (CATEGORY_CACHE[categoryId]) {
+                renderCategoryGames(name, CATEGORY_CACHE[categoryId]);
+                return;
+            }
+
+            if (typeof fetch !== 'function') {
+                renderCategoryState('当前浏览器暂不支持实时加载，建议直接进入277游戏库查看。');
+                return;
+            }
+
+            renderCategoryState('正在读取277游戏库分类数据...');
+            try {
+                const response = await fetch(getCategoryApiUrl(categoryId), { credentials: 'omit' });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+                updateGenreCatalogFromData(data, categoryId);
+                const games = Array.isArray(data.list) ? data.list : [];
+                CATEGORY_CACHE[categoryId] = games;
+                renderCategoryGames(name, games);
+            } catch (error) {
+                renderCategoryState('分类数据暂时未加载成功，可先进入277游戏库查看最新内容。');
+            }
+        }
+
+        function handleCategoryJump(event) {
+            if (event && typeof event.preventDefault === 'function') event.preventDefault();
+            const card = event && event.currentTarget ? event.currentTarget : null;
+            const categoryId = card ? card.dataset.categoryId : '31';
+            const categoryName = card ? card.dataset.categoryName : '仙侠';
+            const eventCategory = card ? (card.dataset.eventCategory || categoryName) : categoryName;
+            if (typeof fbq !== 'undefined') {
+                fbq('trackCustom', 'CategoryEntryClick', { category: eventCategory, genre_order_id: categoryId });
+            }
+            loadCategoryGames(categoryId, categoryName, { scroll: true });
+        }
+
+        window.handleCategoryJump = handleCategoryJump;
 
         // 微信弹窗逻辑（所有账号数据均从 CONFIG.contactLinks 读取，无本地兜底）
         (function () {
@@ -1262,6 +2029,17 @@
                 ).join('');
             }
 
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.href = CONFIG.classifyUrl;
+                card.addEventListener('click', handleCategoryJump);
+            });
+            renderCategoryChips('31');
+            const defaultCategory = categoryCards[0];
+            if (defaultCategory) {
+                loadCategoryGames(defaultCategory.dataset.categoryId, defaultCategory.dataset.categoryName, { scroll: false });
+            }
+
             // ★ 动态设置顶部 WhatsApp 条的链接（从 CONFIG 读取，保持同步）
             const waCfg = CONFIG.contactLinks.find(c => c.type === 'whatsapp');
             const waStrip = document.getElementById('wa-strip-link');
@@ -1307,7 +2085,7 @@
                                     <h4 class="text-xl md:text-5xl font-black text-white italic uppercase">${f.name}</h4>
                                     <div class="flex gap-1.5 mt-2 flex-wrap">${renderWelfareTags(f.welfareTags)}</div>
                                 </div>
-                                <div class="bg-white text-black px-4 py-1.5 rounded-lg text-[10px] font-black uppercase group-hover:bg-yellow-400 transition-colors">立即霸服</div>
+                                <div class="bg-white text-black px-4 py-1.5 rounded-lg text-[10px] font-black uppercase group-hover:bg-yellow-400 transition-colors">查看详情</div>
                             </div>
                         </div>
                     </div>`;
@@ -1328,16 +2106,10 @@
                     <div class="w-8 h-8 rounded-full border border-yellow-400/20 flex items-center justify-center text-yellow-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M9 5l7 7-7 7"></path></svg></div>
                 </div>`).join('');
 
-            // ★ 在线人数动态波动（每5秒 ±1~5 随机变化，真实感）
+            // 顶部状态提示
             const onlineEl = document.getElementById('online-count');
             if (onlineEl) {
-                let baseCount = CONFIG.initOnlineCount + Math.floor(Math.random() * 100) - 50;
-                onlineEl.textContent = baseCount.toLocaleString() + ' PLAYERS OVERSEAS';
-                setInterval(() => {
-                    const delta = Math.floor(Math.random() * 7) - 3; // -3 ~ +3
-                    baseCount = Math.max(CONFIG.initOnlineCount - 120, Math.min(CONFIG.initOnlineCount + 180, baseCount + delta));
-                    onlineEl.textContent = baseCount.toLocaleString() + ' PLAYERS OVERSEAS';
-                }, 5000);
+                onlineEl.textContent = 'PLAYER SUPPORT ONLINE';
             }
 
             // ★ 滚动时隐藏底部礼包标签，停止滚动后淡入
@@ -1354,42 +2126,10 @@
                     }, 600);
                 }, { passive: true });
             }
-            // ★ 倒计时：每次访问随机 4~8 小时，sessionStorage 保持连续性
-            (function initCountdown() {
-                const KEY = 'cd_ends';
-                let endsAt = parseInt(sessionStorage.getItem(KEY) || '0');
-                if (!endsAt || endsAt <= Date.now()) {
-                    const hoursLeft = 4 + Math.random() * 4; // 4~8h 随机
-                    endsAt = Date.now() + hoursLeft * 3600 * 1000;
-                    sessionStorage.setItem(KEY, endsAt);
-                }
-                function tick() {
-                    const diff = Math.max(0, endsAt - Date.now());
-                    const h = Math.floor(diff / 3600000);
-                    const m = Math.floor((diff % 3600000) / 60000);
-                    const s = Math.floor((diff % 60000) / 1000);
-                    const fmt = n => String(n).padStart(2, '0');
-                    const cdH = document.getElementById('cd-h');
-                    const cdM = document.getElementById('cd-m');
-                    const cdS = document.getElementById('cd-s');
-                    if (cdH) cdH.textContent = fmt(h);
-                    if (cdM) cdM.textContent = fmt(m);
-                    if (cdS) cdS.textContent = fmt(s);
-                    if (diff <= 0) { endsAt = Date.now() + 6 * 3600 * 1000; sessionStorage.setItem(KEY, endsAt); }
-                }
-                tick();
-                setInterval(tick, 1000);
-            })();
-
-            // ★ 社会证明用户数：每 30 秒随机 +1~3，模拟真实增长
+            // 活动数量展示
             const spUsers = document.getElementById('sp-users');
             if (spUsers) {
-                let uBase = CONFIG.initUserCount + Math.floor(Math.random() * 200);
-                spUsers.textContent = uBase.toLocaleString();
-                setInterval(() => {
-                    uBase += Math.floor(Math.random() * 3) + 1;
-                    spUsers.textContent = uBase.toLocaleString();
-                }, 30000);
+                spUsers.textContent = '多款';
             }
 
             // ★ 页面停留 25 秒：标记高意向用户，帮助 FB 算法识别
