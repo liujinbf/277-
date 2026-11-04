@@ -46,6 +46,8 @@
             } else {
                 setTimeout(loadPixel, 2500);
             }
+            // ★ 二次保底：load 事件后 2.5s 内必定上报 PageView（联网慢时也不丢数据）
+            window.addEventListener('load', () => setTimeout(loadPixel, 2500));
         })();
     </script>
 
@@ -64,10 +66,9 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
 
-    <!-- ★ 性能优化：Tailwind 改为 defer，不再阻塞首屏渲染（loader 由内联 CSS 驱动，无白屏/闪烁） -->
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preload" as="script" href="https://cdn.tailwindcss.com">
-    <script defer src="https://cdn.tailwindcss.com"></script>
+    <!-- ★ 性能优化：Tailwind 预编译为 21KB 静态 CSS，彻底移除 398KB 运行时 JS 与 JIT 长任务 -->
+    <link rel="preload" as="style" href="tailwind.css">
+    <link rel="stylesheet" href="tailwind.css">
     <style>
         :root {
             --primary: #FFD700;
@@ -1747,6 +1748,22 @@
         document.addEventListener('DOMContentLoaded', () => {
             initApp();
 
+            // ★ 性能优化：宣传视频进入视口才拉流播放（autoplay 会让 preload:none 失效，一上来就是 4MB+）
+            (function () {
+                const vids = document.querySelectorAll('video[data-lazy-video]');
+                if (!vids.length) return;
+                if ('IntersectionObserver' in window) {
+                    const vio = new IntersectionObserver((es) => {
+                        es.forEach(e => {
+                            const v = e.target;
+                            if (e.isIntersecting) { v.play().catch(() => {}); }
+                            else { v.pause(); }
+                        });
+                    }, { threshold: 0.25 });
+                    vids.forEach(v => vio.observe(v));
+                }
+            })();
+
             // ★ 解除阻塞：DOM 加载完成后强制关闭 Loader，最长只等 0.5 秒
             const loader = document.getElementById('global-loader');
             if (loader) {
@@ -2008,10 +2025,14 @@
                     qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(wxId)}`;
                 }
             }
-            if ('requestIdleCallback' in window) {
-                window.addEventListener('load', () => requestIdleCallback(loadWxQr, { timeout: 6000 }));
+            // ★ 性能优化：二维码进入可视区域（或打开弹窗）才请求
+            if ('IntersectionObserver' in window && qrWrap) {
+                const qio = new IntersectionObserver((es) => {
+                    if (es.some(e => e.isIntersecting)) { qio.disconnect(); loadWxQr(); }
+                });
+                qio.observe(qrWrap);
             } else {
-                window.addEventListener('load', () => setTimeout(loadWxQr, 3000));
+                window.addEventListener('load', loadWxQr);
             }
 
             async function doCopy(text) {
@@ -2030,6 +2051,7 @@
             };
 
             window.openWechatModal = async function () {
+                loadWxQr();
                 await doCopy(wxId);
                 if (copiedTip) copiedTip.classList.add('show');
                 setTimeout(() => copiedTip && copiedTip.classList.remove('show'), 2500);
@@ -2122,7 +2144,7 @@
                 document.getElementById('feature-card-container').innerHTML = `
                     <div onclick="handleJump('game', '${f.id}')" class="block relative rounded-[1.5rem] overflow-hidden glass-card p-1 group cursor-pointer">
                         <div class="relative w-full aspect-video md:h-96 md:aspect-auto rounded-[1rem] overflow-hidden bg-gray-900">
-                            <video src="${f.video}" poster="${f.cover}" preload="none" autoplay muted loop playsinline class="w-full h-full object-cover"></video>
+                            <video src="${f.video}" poster="${f.cover}" preload="none" muted loop playsinline class="w-full h-full object-cover" data-lazy-video></video>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
                             <div class="absolute bottom-3 left-3 right-3 flex flex-col md:flex-row justify-between items-start md:items-end gap-2 text-left">
                                 <div>
