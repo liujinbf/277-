@@ -46,8 +46,8 @@
             } else {
                 setTimeout(loadPixel, 2500);
             }
-            // ★ 二次保底：load 事件后 2.5s 内必定上报 PageView（联网慢时也不丢数据）
-            window.addEventListener('load', () => setTimeout(loadPixel, 2500));
+            // ★ 二次保底：load 事件后 4s 内必定上报 PageView（联网慢时也不丢数据）
+            window.addEventListener('load', () => setTimeout(loadPixel, 4000));
         })();
     </script>
 
@@ -1750,6 +1750,24 @@
 
             // ★ 性能优化：宣传视频进入视口才拉流播放（autoplay 会让 preload:none 失效，一上来就是 4MB+）
             (function () {
+                // 深度懒加载图标：原生 loading=lazy 在慢速4G下阈值可达 2500px+，等于立即加载 1.3MB GIF
+                // 改为 IO + 150px 边距，滚动接近才加载
+                const lazyImgs = document.querySelectorAll('img[data-lazy-src]');
+                if (lazyImgs.length && 'IntersectionObserver' in window) {
+                    const lio = new IntersectionObserver((es) => {
+                        es.forEach(e => {
+                            if (e.isIntersecting) {
+                                e.target.src = e.target.dataset.lazySrc;
+                                delete e.target.dataset.lazySrc;
+                                lio.unobserve(e.target);
+                            }
+                        });
+                    }, { rootMargin: '150px 0px' });
+                    lazyImgs.forEach(i => lio.observe(i));
+                } else {
+                    lazyImgs.forEach(i => { i.src = i.dataset.lazySrc; delete i.dataset.lazySrc; });
+                }
+
                 const vids = document.querySelectorAll('video[data-lazy-video]');
                 if (!vids.length) return;
                 if ('IntersectionObserver' in window) {
@@ -2162,7 +2180,7 @@
             document.getElementById('game-list').innerHTML = CONFIG.games.filter(g => !g.isFeature).map(game => `
                 <div onclick="handleJump('game', '${game.id}')" class="glass-card p-3 flex items-center gap-3 transition-all active:scale-95 cursor-pointer hover:border-yellow-400/30 hover:bg-white/[0.06]" style="transition: border-color 0.2s, background 0.2s, transform 0.1s;">
                     <div class="relative flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border border-white/10">
-                        <img src="${game.icon}" class="w-full h-full object-cover" alt="${game.name}" loading="lazy" onerror="this.onerror=null;this.style.display='none';this.parentElement.setAttribute('data-fallback','${game.name.charAt(0)}');this.parentElement.classList.add('icon-fallback')">
+                        <img data-lazy-src="${game.icon}" class="w-full h-full object-cover" alt="${game.name}" onerror="this.onerror=null;this.style.display='none';this.parentElement.setAttribute('data-fallback','${game.name.charAt(0)}');this.parentElement.classList.add('icon-fallback')">
                         ${game.isHot ? '<span class="absolute top-0 left-0 bg-red-600 text-white text-[7px] px-1.5 py-0.5 font-black italic rounded-br-lg uppercase">Hot</span>' : ''}
                     </div>
                     <div class="flex-1 min-w-0 text-left">
